@@ -1,0 +1,38 @@
+<h2>Search and Browse the Events within the Incident Database</h2>
+
+<p><%= render :partial => 'incidents/search' %><p>
+
+<table id="rounded-corner" width="910">
+    <colgroup>
+    <col width="100">
+    <col width="200">
+    <col width="150">
+    <col width="150">
+  </colgroup>
+  <tr>
+    <th colspan="100%" align="center"><%= will_paginate @events %></th>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Sources</th>
+    <th>Incident</th>
+    <% if signed_in? && admin? %>
+    <th></th>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.date %></td>
+    <td><%= link_to event.name, event %></td>
+    <td><%= event.sources.count %></td>
+    <td><%= event.incident.name %></td>
+    <% if signed_in? && admin? %>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

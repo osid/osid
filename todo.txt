@@ -1,0 +1,40 @@
+Access Rights
+-------------
+Anonymous:
+new:		incident, event, source
+Registered User:
+new:		incident, event, source
+modify:		own incident, event, source
+Admin:
+all
+
+Login
+-----
+name based instead of e-mail
+
+
+Simplification
+--------------
+omit secondary victim
+every incident has_many sources
+every incident has_many events
+every event has_many sources
+
+
+menu
+
+
+Deleting Incidents
+------------------
+delete associated events and sources
+
+
+Referntial Integrity
+--------------------
+
+
+Validation
+----------
+
+
+

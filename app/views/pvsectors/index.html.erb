@@ -1,0 +1,25 @@
+<h1>Listing pvsectors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pvsectors.each do |pvsector| %>
+  <tr>
+    <td><%= pvsector.name %></td>
+    <td><%= pvsector.description %></td>
+    <td><%= link_to 'Show', pvsector %></td>
+    <td><%= link_to 'Edit', edit_pvsector_path(pvsector) %></td>
+    <td><%= link_to 'Destroy', pvsector, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pvsector', new_pvsector_path %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  firstseen: 2011-06-23
+  user_id: 1
+  summary: MyText
+  primaryvictimname: MyString
+  primaryvictimtaxonomy: 1
+  secorndaryvictimname: MyString
+  secorndaryvictimtaxonomy: 1
+  attackdescription: MyString
+  attacktaxonomy: 1
+  targetdescription: MyString
+  targettaxonomy: 1
+
+two:
+  name: MyString
+  firstseen: 2011-06-23
+  user_id: 1
+  summary: MyText
+  primaryvictimname: MyString
+  primaryvictimtaxonomy: 1
+  secorndaryvictimname: MyString
+  secorndaryvictimtaxonomy: 1
+  attackdescription: MyString
+  attacktaxonomy: 1
+  targetdescription: MyString
+  targettaxonomy: 1

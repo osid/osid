@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pvsector.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @pvsector.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_pvsector_path(@pvsector) %> |
+<%= link_to 'Back', pvsectors_path %>

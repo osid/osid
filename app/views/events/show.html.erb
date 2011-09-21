@@ -1,0 +1,54 @@
+<h3>Event Details: <%= @event.name %></h3
+
+<p></p>
+
+<%= link_to 'Back to Incidnet', @event.incident %> |
+<%= link_to 'Add Source', new_source_path(:ref => @event.id) %>
+<% if signed_in? && admin? %>
+| <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Delete', @event, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<table cellpadding="5" border="0">
+  <colgroup>
+    <col width="150">
+    <col width="100">    
+    <col width="300">    
+    <col width="150">    
+  </colgroup>  
+  <tr>
+    <td valign="top" align="right"><b>Belongs to Incident:</b></td>
+    <td valign="top" colspan="3"><%= link_to @event.incident.name, @event.incident %></td>
+  </tr>
+  <tr>
+    <td valign="top" align="right"><b>Happend at:</b></td>
+    <td valign="top" colspan="3"><%= @event.date %></td>
+  </tr>
+  <tr>
+    <td valign="top" align="right"><b>Description:</b></td>
+    <td valign="top" colspan="3"><%= @event.description %></td>
+  </tr>  
+    <tr>
+    <td valign="top" align="right"><b>Sources:</b></td>
+    <td valign="top" align="left"><b>Date</b></td>
+    <td valign="top" align="left"><b>Name</b></td>
+    <td valign="top" align="left"><b>Publisher</b></td>
+    <td valign="top" align="left"><b>Link</b></td>
+  </tr> 
+  <% @event.sources.each do |source| %>
+      <tr>
+        <td valign="top" align="right"></td>
+        <td valign="top"><%= source.publishingdate %></td>
+        <td valign="top"><%= link_to source.name, source %> </td>
+        <td valign="top"><%= source.publisher %>
+        <td valign="top"><%= link_to "Link", source.reference %></td>
+      </tr>
+    <% end %>
+  <tr>
+  <tr>
+    <td valign="top" align="right"><b>Submitted by:</b></td>
+    <td valign="top" colspan="3"><%= @event.user.name %></td>
+  </tr>
+</table>

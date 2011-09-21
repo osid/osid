@@ -1,0 +1,8 @@
+<h3>Submit a new source to: <%= @source.event.name %></h3>
+</p>
+<%= link_to 'Back to Incidnet', @source.event.incident %> | 
+<%= link_to 'Back to Event', @source.event %>
+</p>
+<%= render 'form' %>
+
+<%= link_to 'Back', sources_path %>

@@ -1,0 +1,24 @@
+<header>  
+  <%= image_tag("osid-logo.jpg", :alt => "OSID", :class => "round") %>  
+  <nav class="round">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <% if signed_in? %>
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        <% if admin? %>
+          <li><%= link_to "Admin", admin_path %></li>
+        <% end %>
+      <% end %>
+        <li><%= link_to "News",news_path %></li>
+        <li><%= link_to "Incidents", incidents_path %></li>
+        <li><%= link_to "Contribute", contribute_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+      <% if signed_in? %>
+        <li><%= link_to "Sign out", signout_path %></li>
+      <% else %>
+        <li><%= link_to "Sign in", signin_path %></li>
+      <% end %>
+    </ul>
+  </nav>   
+</header>

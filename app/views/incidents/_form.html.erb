@@ -1,0 +1,72 @@
+<%= form_for(@incident) do |f| %>
+  <% if @incident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+      <ul>
+      <% @incident.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table cellpadding="5" border="0">
+	<colgroup>
+    	<col width="200">
+    	<col width="250">    
+    	<col width="200">    
+    	<col width="250">    
+	</colgroup>  
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :name %></b></td>
+    	<td valign="top" ><%= f.text_field :name, :size => "50" %></td>
+    	<td valign="top" align="right"><b><%= f.label :firstseen %></b></td>
+    	<td valign="top" ><%= f.date_select :firstseen %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :summary %></b></td>
+    	<td valign="top" colspan="3"><%= f.text_area :summary, :size => "100x10"  %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :pvsector_id, "Primary Victim" %></b></td>
+    	<td valign="top" ><%= f.select :pvsector_id, Pvsector.all.sort!{ |a,b| a.name <=> b.name }.collect {|sector| [ sector.name, sector.id ] } %></td>
+    	<td valign="top" align="right"><%= f.label :pvname, "Primary Victim Description"%></b></td>
+    	<td valign="top" ><%= f.text_field :pvname, :size => "40" %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :svsector_id, "Secondary Victim" %></b></td>
+    	<td valign="top" ><%= f.select :svsector_id, Svsector.order("name asc").collect {|sector| [ sector.name, sector.id ] } %></td>
+    	<td valign="top" align="right"><%= f.label :svname, "Secondary Victim Description"%></b></td>
+    	<td valign="top" ><%= f.text_field :svname, :size => "40" %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :attack_id %></b></td>
+    	<td valign="top" ><%= f.select :attack_id, Attack.order("name asc").collect {|attack| [ attack.name, attack.id ] } %></td>
+    	<td valign="top" align="right"></b><%= f.label :attackdescription %></td>
+    	<td valign="top" ><%= f.text_field :attackdescription, :size => "40" %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :attacker_id %></b></td>
+    	<td valign="top" ><%= f.select :attacker_id, Attacker.order("name asc").collect {|attacker| [ attacker.name, attacker.id ] } %></td>
+    	<td valign="top" align="right"></b><%= f.label :attackerdescription %></td>
+    	<td valign="top" ><%= f.text_field :attackerdescription, :size => "40" %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :target_id %></b></td>
+    	<td valign="top" ><%= f.select :target_id, Target.order("name asc").collect {|target| [ target.name, target.id ] } %></td>
+    	<td valign="top" align="right"><%= f.label :targetdescription %></b></td>
+    	<td valign="top" ><%= f.text_field :targetdescription, :size => "40"  %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="right"><b><%= f.label :country_id %></b></td>
+    	<td valign="top" ><%= f.select :country_id, Country.order("name asc").collect {|country| [ country.name, country.id ] } %></td>
+    	<td valign="top" align="right"></b></td>
+    	<td valign="top" ></td>
+	</tr>
+</table>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

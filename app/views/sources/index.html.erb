@@ -1,0 +1,39 @@
+<h1>Listing sources</h1>
+
+<%= will_paginate @sources %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Summary</th>
+    <th>Publisher</th>
+    <th>Media</th>
+    <th>Publishingdate</th>
+    <th>User</th>
+    <th>Addition</th>
+    <th>Reference</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sources.each do |source| %>
+  <tr>
+    <td><%= source.name %></td>
+    <td><%= source.summary %></td>
+    <td><%= source.publisher %></td>
+    <td><%= source.media %></td>
+    <td><%= source.publishingdate %></td>
+    <td><%= source.user.name %></td>
+    <td><%= source.event.name %></td>
+    <td><%= source.reference %></td>
+    <td><%= link_to 'Show', source %></td>
+    <td><%= link_to 'Edit', edit_source_path(source) %></td>
+    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Source', new_source_path %>

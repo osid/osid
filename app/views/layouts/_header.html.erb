@@ -1,0 +1,27 @@
+<div id="wrapper">
+	<div id="header">
+  		<div id="logo">
+<%= image_tag("osid.png", :alt => "OSID", :size => "198x198") %>
+    	</div>  
+  	</div>
+  <div id="menu">
+      <ul>
+      <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "News",news_path %></li>
+        <li><%= link_to "Incidents", incidents_path %></li>
+        <li><%= link_to "Contribute", contribute_path %></li>
+      <% if signed_in? %>
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        <% if admin? %>
+          <li><%= link_to "Admin", admin_path %></li>
+        <% end %>
+      <% end %>
+      <% if signed_in? %>
+        <li><%= link_to "Sign out", signout_path %></li>
+      <% else %>
+        <li><%= link_to "Sign in", signin_path %></li>
+        <li><%= link_to "Sign up", signup_path %></li>
+      <% end %>
+		</ul>
+	</div>

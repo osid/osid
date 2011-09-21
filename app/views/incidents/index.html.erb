@@ -1,0 +1,72 @@
+<h2>Search and Browse the Incident Database</h2>
+
+<%= form_tag incidents_path, :method => 'get', :id => "incidents_search" do %>
+	<p>
+		<table>
+			<colgroup>
+		    <col width="500">
+			<col width="200">
+		  </colgroup>
+			<tr><td>
+				<table>
+					<tr><td>Incident Name:</td><td><%= text_field_tag :name, params[:name] %></td></tr>
+					<tr><td>Primary Victimname:</td><td><%= text_field_tag :pvname, params[:pvname] %></td></tr>
+					<tr><td>Target Type:</td><td><%= select("TargetType", "target_id", Target.all.collect {|target| [ target.name, target.id ] }, :include_blank => true) %></td></tr>
+					<tr><td>Attacker Type:</td><td><%= select("AttackerType", "attacker_id", Attacker.all.collect {|attacker| [ attacker.name, attacker.id ] },  :include_blank => true) %></td></tr>
+				</table>
+				</td>
+				<td>
+				<%= submit_tag "Search", :name => nil %>
+				<input type="reset">
+				</td>
+			</tr>
+		</table>
+	</p>
+
+
+	<div id="incidents">
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+		<%= will_paginate @incidents %>
+	</div>
+			
+	<table class="pretty" id="rounded-corner" width="910">
+	  <colgroup>
+	    <col width="100">
+		<col width="100">
+	    <col width="200">
+	    <col width="150">
+	    <col width="150">
+	    <col width="100">
+	    <col width="100">
+	  </colgroup>
+	  <tr>
+	    <th><%= sortable "firstseen", "First Seen"%></th>
+		<th><%= sortable "updated_at", "Updated at" %></th>
+	    <th>Name</th>
+	    <th>Primary Victim</th>
+	    <th>Secondary Victim</th>
+	    <th>Target</th>
+	    <th>Attacker</th>
+	    <% if signed_in? && admin? %>
+	    <th></th>
+	    <th></th>
+	    <% end %>
+	  </tr>
+		<% @incidents.each do |incident| %>
+		<tr>
+			<td><%= incident.firstseen %></td>
+			<td><%= incident.updated_at %></td>
+	    	<td><%= link_to incident.name, incident %></td>
+	    	<td><%= incident.pvname %></td>
+	    	<td><%= incident.svname %></td>
+	    	<td><%= incident.target.name %></td>
+	    	<td><%= incident.attacker.name %></td>
+			<% if signed_in? && admin? %>
+	    			<td><%= link_to 'Edit', edit_incident_path(incident) %></td>
+	    			<td><%= link_to 'Destroy', incident, :confirm => 'Are you sure?', :method => :delete %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</table>
+<% end %>

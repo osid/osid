@@ -1,0 +1,22 @@
+<h1>OSID news</h1>
+
+<%= will_paginate @blogposts %>
+
+<table>
+		<col width="600">
+		<col width="200">
+		<col width="100">
+<% @blogposts.each do |post| %>
+		 	<tr>
+				<td><h3><%= post.header %></h3></td><td><%= post.updated_at %></td><td>by: <%= post.user.name %></td>
+			</tr>
+			<tr>
+				<td colspan="3"><br><%= post.content %><br><br><br></td>
+			</tr>
+<% end %>
+</table>
+
+<%= link_to "RSS Feed", blogposts_url(:rss) %>
+
+
+<br />
