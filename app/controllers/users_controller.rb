@@ -93,11 +93,6 @@ private
     redirect_to(root_path) unless current_user.admin?
   end
 
-#def admin_user
- #     @user = User.find(params[:id])
-#     redirect_to(root_path) if !current_user.useradmin
-#end
-
     def authenticate
       deny_access unless signed_in?
     end

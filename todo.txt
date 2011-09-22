@@ -8,10 +8,13 @@ modify:		own incident, event, source
 Admin:
 all
 
-Login
------
-name based instead of e-mail
-
+Problems
+--------
+deleting users
+add weakness
+access rights
+testing
+authentication
 
 Simplification
 --------------
@@ -21,16 +24,11 @@ every incident has_many events
 every event has_many sources
 
 
-menu
-
 
 Deleting Incidents
 ------------------
 delete associated events and sources
 
-
-Referntial Integrity
---------------------
 
 
 Validation
