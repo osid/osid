@@ -1,15 +1,15 @@
 <div id="wrapper">
 	<div id="header">
   		<div id="logo">
-<%= image_tag("osid.png", :alt => "OSID", :size => "198x198") %>
+<%= image_tag("osid-logo.png", :alt => "OSID", :size => "478x170") %>
     	</div>  
   	</div>
   <div id="menu">
       <ul>
       <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "News",news_path %></li>
         <li><%= link_to "Incidents", incidents_path %></li>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "News Archive",news_path %></li>
       <% if signed_in? %>
         <li><%= link_to "Profile", current_user %></li>
         <li><%= link_to "Settings", edit_user_path(current_user) %></li>
@@ -20,8 +20,8 @@
       <% if signed_in? %>
         <li><%= link_to "Sign out", signout_path %></li>
       <% else %>
-        <li><%= link_to "Sign in", signin_path %></li>
         <li><%= link_to "Sign up", signup_path %></li>
+        <li><%= link_to "Sign in", signin_path %></li>
       <% end %>
 		</ul>
 	</div>

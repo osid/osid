@@ -8,7 +8,7 @@
 		<col width="100">
 <% @blogposts.each do |post| %>
 		 	<tr>
-				<td><h3><%= post.header %></h3></td><td><%= post.updated_at %></td><td>by: <%= post.user.name %></td>
+				<td><b><%= post.header %></b></td><td><%= post.updated_at %></td><td>by: <%= post.user.name %></td>
 			</tr>
 			<tr>
 				<td colspan="3"><br><%= post.content %><br><br><br></td>

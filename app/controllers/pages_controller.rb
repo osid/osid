@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
     @title = "Welcome to OSID"
     
-    @blogposts = Blogpost.find(:all, :order => "created_at DESC", :limit => 2)
+    @blogposts = Blogpost.find(:all, :order => "created_at DESC", :limit => 5)
     
     @incidents_count = Incident.count
     

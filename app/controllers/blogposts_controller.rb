@@ -42,6 +42,13 @@ class BlogpostsController < ApplicationController
   # POST /blogposts.xml
   def create
     @blogpost = Blogpost.new(params[:blogpost])
+    
+    
+    if signed_in?
+      @blogpost.user_id = current_user.id  
+    else
+      @blogpost.user_id = 1
+    end
 
     respond_to do |format|
       if @blogpost.save

@@ -1,6 +1,6 @@
-<h3>Incident Details: <%= @incident.name %></h3
+<h3>Incident Details: <%= @incident.name %></h3>
 
-<%= link_to 'Back to Incidents', incidents_path %> | 
+<%= link_to "Back Incidents", incidents_path %> |
 <%= link_to 'Add Event', new_event_path(:ref => @incident.id) %>
 <% if signed_in? && admin? %>
 | <%= link_to 'Edit', edit_incident_path(@incident) %> |

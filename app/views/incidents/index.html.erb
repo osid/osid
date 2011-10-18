@@ -1,3 +1,9 @@
+<h2>Submit new incidents</h2>
+
+<p>
+<%= link_to "Submit a new incident", new_incident_path  %>
+</p>
+
 <h2>Search and Browse the Incident Database</h2>
 
 <%= form_tag incidents_path, :method => 'get', :id => "incidents_search" do %>
@@ -22,7 +28,6 @@
 			</tr>
 		</table>
 	</p>
-
 
 	<div id="incidents">
 		<%= hidden_field_tag :direction, params[:direction] %>
