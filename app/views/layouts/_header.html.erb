@@ -1,8 +1,13 @@
 <div id="wrapper">
 	<div id="header">
   		<div id="logo">
-<%= image_tag("osid-logo.png", :alt => "OSID", :size => "478x170") %>
-    	</div>  
+			<%= image_tag("osid-logo.png", :alt => "OSID", :size => "478x170") %>
+    	</div>
+		<div id="welcome">
+			<% if signed_in? %>
+				Welcome: <%= current_user.name %>
+			<% end %>
+		</div>
   	</div>
   <div id="menu">
       <ul>

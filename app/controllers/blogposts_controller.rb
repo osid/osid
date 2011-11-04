@@ -1,8 +1,13 @@
 class BlogpostsController < ApplicationController
+  before_filter :authenticate, :except => [ :index, :show]
+  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  
   # GET /blogposts
   # GET /blogposts.xml
   def index
     @blogposts = Blogpost.search(params[:search], params[:page])
+    
+    @title = "Blogposts"    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +21,8 @@ class BlogpostsController < ApplicationController
   def show
     @blogpost = Blogpost.find(params[:id])
 
+    @title = "Blog Details"
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @blogpost }
@@ -26,6 +33,8 @@ class BlogpostsController < ApplicationController
   # GET /blogposts/new.xml
   def new
     @blogpost = Blogpost.new
+
+    @title = "New Blogpost"
 
     respond_to do |format|
       format.html # new.html.erb

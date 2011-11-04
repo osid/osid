@@ -10,17 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110902194458) do
-
-  create_table "additions", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.integer  "incident_id"
-    t.date     "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110709104428) do
 
   create_table "attackers", :force => true do |t|
     t.string   "name"
@@ -84,23 +74,6 @@ ActiveRecord::Schema.define(:version => 20110902194458) do
   create_table "pvsectors", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "searches", :force => true do |t|
-    t.string   "name"
-    t.date     "firstseedfrom"
-    t.date     "firstseendto"
-    t.date     "updatedfrom"
-    t.date     "updatedto"
-    t.string   "pvname"
-    t.string   "attackerdescription"
-    t.string   "attackdescription"
-    t.integer  "pvsector_id"
-    t.integer  "attacker_id"
-    t.integer  "target_id"
-    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

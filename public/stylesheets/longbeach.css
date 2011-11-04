@@ -8,7 +8,7 @@ body {
         margin: 20px;
         background: #000000;
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-size: 13px;
+        font-size: 14px;
         color: #787878;
 }
 
@@ -62,7 +62,12 @@ a:hover {
         width: 910px;
         height: 175px;
         margin: 0 auto;
-        background: #104e8b url(images/img01.jpg) no-repeat left top;
+        /*background: #104e8b url(images/img01.jpg) no-repeat left bottom;*/
+}
+
+#welcome {
+        position: absolute; 
+		top: 10; left: 100
 }
 
 /* Logo */
@@ -160,7 +165,7 @@ a:hover {
         text-transform: uppercase;
         text-decoration: none;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: bold;
         color: #FFFFFF;
         border: none;
@@ -309,7 +314,7 @@ a:hover {
 #footer p {
         margin: 0;
         line-height: normal;
-        font-size: 9px;
+        font-size: 10px;
         text-transform: uppercase;
         text-align: center;
 }
@@ -321,7 +326,7 @@ a:hover {
 #rounded-corner
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 10px;
+	font-size: 15px;
 	margin: 0px;
 	width: 910px;
 	text-align: left;
@@ -339,7 +344,7 @@ a:hover {
 {
 	padding: 2px;
 	font-weight: normal;
-	font-size: 12px;
+	font-size: 15px;
 	color: #039;
 	background: #b9c9fe;
 }
@@ -364,7 +369,7 @@ a:hover {
 }
 
 .pretty th .current {
-  padding-right: 12px;
+  padding-right: 15px;
   background-repeat: no-repeat;
   background-position: right center;
 }

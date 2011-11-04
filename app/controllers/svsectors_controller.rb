@@ -1,8 +1,13 @@
 class SvsectorsController < ApplicationController
+  before_filter :authenticate, :except => [ :index, :show]
+  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  
   # GET /svsectors
   # GET /svsectors.xml
   def index
     @svsectors = Svsector.all
+    
+    @title = "Secondary Victim Sector"    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +20,8 @@ class SvsectorsController < ApplicationController
   def show
     @svsector = Svsector.find(params[:id])
 
+    @title = "Secondary Victim Sector Details"  
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @svsector }
@@ -25,6 +32,8 @@ class SvsectorsController < ApplicationController
   # GET /svsectors/new.xml
   def new
     @svsector = Svsector.new
+
+    @title = "New Secondary Victim Sector"  
 
     respond_to do |format|
       format.html # new.html.erb

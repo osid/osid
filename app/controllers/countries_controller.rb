@@ -1,8 +1,13 @@
 class CountriesController < ApplicationController
+  before_filter :authenticate, :except => [ :index, :show]
+  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  
   # GET /countries
   # GET /countries.xml
   def index
     @countries = Country.all
+    
+    @title = "Countries"    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +20,8 @@ class CountriesController < ApplicationController
   def show
     @country = Country.find(params[:id])
 
+    @title = "Country Details"
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @country }
@@ -25,6 +32,8 @@ class CountriesController < ApplicationController
   # GET /countries/new.xml
   def new
     @country = Country.new
+
+    @title = "New Country"
 
     respond_to do |format|
       format.html # new.html.erb

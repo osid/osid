@@ -1,9 +1,14 @@
 class PvsectorsController < ApplicationController
+  before_filter :authenticate, :except => [ :index, :show]
+  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  
   # GET /pvsectors
   # GET /pvsectors.xml
   def index
     @pvsectors = Pvsector.all
     @pvsectors.sort! { |a,b| a.name <=> b.name }
+    
+    @title = "Primary Victim Sector"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +21,8 @@ class PvsectorsController < ApplicationController
   def show
     @pvsector = Pvsector.find(params[:id])
 
+    @title = "Primary Victim Sector Details"
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @pvsector }
@@ -26,6 +33,8 @@ class PvsectorsController < ApplicationController
   # GET /pvsectors/new.xml
   def new
     @pvsector = Pvsector.new
+
+    @title = "New Primary Victim Sector"
 
     respond_to do |format|
       format.html # new.html.erb

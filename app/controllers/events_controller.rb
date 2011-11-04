@@ -1,8 +1,13 @@
 class EventsController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :update]
+  before_filter :correct_user, :only => [:edit, :update, :destroy]
+  
   # GET /events
   # GET /events.xml
   def index
     @events = Event.search(params[:search], params[:page])
+
+    @title = "Events"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +19,8 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    
+    @title = "Event Details"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +34,8 @@ class EventsController < ApplicationController
     @event = Event.new
     
     @event.incident_id = params[:ref]
+
+    @title = "New Event"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -90,4 +99,11 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def correct_user
+      @event = Event.find(params[:id])
+      redirect_to(root_path) unless current_user?(@event.user) || current_user.admin?
+    end  
+
 end

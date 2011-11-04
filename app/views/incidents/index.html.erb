@@ -37,10 +37,9 @@
 			
 	<table class="pretty" id="rounded-corner" width="910">
 	  <colgroup>
-	    <col width="100">
-		<col width="100">
-	    <col width="200">
 	    <col width="150">
+		<col width="150">
+	    <col width="200">
 	    <col width="150">
 	    <col width="100">
 	    <col width="100">
@@ -49,8 +48,7 @@
 	    <th><%= sortable "firstseen", "First Seen"%></th>
 		<th><%= sortable "updated_at", "Updated at" %></th>
 	    <th>Name</th>
-	    <th>Primary Victim</th>
-	    <th>Secondary Victim</th>
+	    <th>Victim</th>
 	    <th>Target</th>
 	    <th>Attacker</th>
 	    <% if signed_in? && admin? %>
@@ -64,7 +62,6 @@
 			<td><%= incident.updated_at %></td>
 	    	<td><%= link_to incident.name, incident %></td>
 	    	<td><%= incident.pvname %></td>
-	    	<td><%= incident.svname %></td>
 	    	<td><%= incident.target.name %></td>
 	    	<td><%= incident.attacker.name %></td>
 			<% if signed_in? && admin? %>

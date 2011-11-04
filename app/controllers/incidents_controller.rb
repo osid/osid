@@ -2,12 +2,12 @@ class IncidentsController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :authenticate, :only => [:edit, :update]
   before_filter :correct_user, :only => [:edit, :update, :destroy]
+
   
   # GET /incidents
   # GET /incidents.xml
   def index
-    
-    puts "index ============================="
+    @title = "Incidents"
     
     sort_column = "updated_at" unless sort_column
     sort_direction = "desc" unless sort_direction
@@ -22,11 +22,9 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/1
   # GET /incidents/1.xml
-  def show
-    
-      puts "show ============================="
-      
+  def show      
     @incident = Incident.find(params[:id])
+    
     @title = @incident.name
     
     @counter = 0
@@ -40,6 +38,8 @@ class IncidentsController < ApplicationController
   # GET /incidents/new.xml
   def new
     @incident = Incident.new
+    
+    @title = "New Incident"    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -103,12 +103,13 @@ class IncidentsController < ApplicationController
     end
   end
 
-  def correct_user
-      @incident = Incident.find(params[:id])
-      redirect_to(root_path) unless current_user?(@incident.user.email) || current_user.admin?
-  end
   private
   
+  def correct_user
+      @incident = Incident.find(params[:id])
+      redirect_to(root_path) unless current_user?(@incident.user) || current_user.admin?
+  end
+
   def sort_column
     Incident.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end

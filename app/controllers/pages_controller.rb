@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @title = "Welcome to OSID"
+    @title = "Home"
     
     @blogposts = Blogpost.find(:all, :order => "created_at DESC", :limit => 5)
     
@@ -19,29 +19,27 @@ class PagesController < ApplicationController
     @users_count = User.count
     
     @users_latest = User.find(:first, :order => "created_at DESC")
-    
   end
   
-  def contribute
-     @incident = Incident.new
-  end  
-  
   def news
+    @title = "News"
     @blogposts = Blogpost.search(params[:search], params[:page])
   end
   
   def admin
+    @title = "Admin"
   end
 
   def about
+    @title = "About"
   end
   
   def contact
+    @title = "Contact"
   end
   
   def privacy
+    @title = "Privacy"
   end
   
-  def index
-  end
 end

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :except => [ :new, :create]
-  #before_filter :correct_user, :only => [:edit, :update, :deactivate]
-  #before_filter :correct_user
   before_filter :correct_user, :only => [:edit, :update, :deactivate, :show]
   before_filter :admin_user, :only => [:index, :destroy]
   
@@ -11,6 +9,8 @@ class UsersController < ApplicationController
     #@users = User.all
     
     @users = User.search(params[:search], params[:page])
+    
+    @title = "User"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+    
+    @title = "User Details"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,6 +35,8 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
+    
+    @title = "Sign Up"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -81,9 +85,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.active = false
   end 
-
+  
 private
-# TODO: put those functions into sessions_helper
   def correct_user
       @user = User.find(params[:id])      
       redirect_to(root_path) unless current_user?(@user) || current_user.admin?

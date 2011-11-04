@@ -14,13 +14,19 @@ module SessionsHelper
   end
   
   def signed_in?
-    puts "signed_in? sessions_helper ==================="
     !current_user.nil?
   end
   
   def admin?
-    puts "admin? sessions_helper ==================="
     self.current_user.admin
+  end
+  
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
+  
+  def own_object(object)
+    object.user.name == current_user.name
   end
   
   def sign_out

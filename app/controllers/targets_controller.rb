@@ -1,4 +1,7 @@
 class TargetsController < ApplicationController
+  before_filter :authenticate, :except => [ :index, :show]
+  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  
   # GET /targets
   # GET /targets.xml
   def index

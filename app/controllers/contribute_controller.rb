@@ -1,3 +1,0 @@
-class ContributeController < ApplicationController
-  
-end

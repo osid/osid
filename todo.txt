@@ -1,38 +1,10 @@
-Access Rights
--------------
-Anonymous:
-new:		incident, event, source
-Registered User:
-new:		incident, event, source
-modify:		own incident, event, source
-Admin:
-all
-
-Problems
---------
-deleting users
-add weakness
-access rights
-testing
-authentication
-
-Simplification
---------------
-omit secondary victim
-every incident has_many sources
-every incident has_many events
-every event has_many sources
-
-
-
-Deleting Incidents
-------------------
-delete associated events and sources
-
-
-
-Validation
-----------
-
-
-
+GeneralTesting
+Security testing
+running webserver in production mode
+return 404 instead of routing error
+after ACL fails, redirected to root or signin: instead I would like to stay at the same place
+setting timestamp at login
+showing logged in user nicely
+implement different submission process
+database import/export/backup features
+sort of incidents table does not work any more

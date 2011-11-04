@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   class << self
     def authenticate(name, submitted_password)
       user = find_by_name(name)
+      lastlogin = Time.now if (user && user.has_password?(submitted_password))
       (user && user.has_password?(submitted_password)) ? user : nil
     end
     

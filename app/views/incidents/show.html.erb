@@ -2,11 +2,10 @@
 
 <%= link_to "Back Incidents", incidents_path %> |
 <%= link_to 'Add Event', new_event_path(:ref => @incident.id) %>
-<% if signed_in? && admin? %>
+<% if signed_in? && (admin? || own_object(@incident)) %>
 | <%= link_to 'Edit', edit_incident_path(@incident) %> |
 <%= link_to 'Delete', @incident, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
-
 
 <p id="notice"><%= notice %></p>
 
@@ -72,7 +71,7 @@
   	<tr>
     	<td><b><%= event.date %></b></td> 
     	<td><%= link_to event.name, event %> </td>
-    	<% if signed_in? && admin? %>
+    	<% if signed_in? && (admin? || own_object(@incident)) %>
     	<td><%= link_to 'Edit', edit_event_path(event) %></td>
 		<% end %>
 	</tr>

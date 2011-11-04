@@ -2,16 +2,16 @@
 <p>
 <table>
 	<tr>
-		<td>Nr. Incidents: </td><td><%= @incidents_count %> </td><td>latest update: </td><td><%=  @incidents_latest.created_at %></td>
+		<td>Nr. Incidents: </td><td><%= @incidents_count %> </td><td>latest update: </td><td><%= @incidents_latest.created_at if @incidents_latest  %></td>
 		</tr>
 		<tr>
-		<td>Nr. Events:  </td><td><%= @events_count %> </td><td>latest update: </td><td><%=  @events_latest.created_at %></td>
+		<td>Nr. Events:  </td><td><%= @events_count %> </td><td>latest update: </td><td><%=  @events_latest.created_at if @events_latest %></td>
 		</tr>
 		<tr>
-		<td>Nr. Sources: </td><td><%= @sources_count %> </td><td>latest update: </td><td><%=  @sources_latest.created_at %></td>
+		<td>Nr. Sources: </td><td><%= @sources_count %> </td><td>latest update: </td><td><%=  @sources_latest.created_at if @sources_latest %></td>
 		</tr>
 		<tr>
-		<td>Nr. Users:  </td><td><%= @users_count %> </td><td>latest update: </td><td><%=  @users_latest.created_at %></td>
+		<td>Nr. Users:  </td><td><%= @users_count %> </td><td>latest update: </td><td><%=  @users_latest.created_at if @users_latest %></td>
 	</tr>
 </table>				
 </p>

@@ -1,8 +1,13 @@
 class AttacksController < ApplicationController
+  before_filter :authenticate, :except => [ :index, :show]
+  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  
   # GET /attacks
   # GET /attacks.xml
   def index
     @attacks = Attack.all
+    
+    @title = "Attacks"    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +20,8 @@ class AttacksController < ApplicationController
   def show
     @attack = Attack.find(params[:id])
 
+    @title = "Attack Details"
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @attack }
@@ -25,6 +32,8 @@ class AttacksController < ApplicationController
   # GET /attacks/new.xml
   def new
     @attack = Attack.new
+
+    @title = "New Attack"
 
     respond_to do |format|
       format.html # new.html.erb

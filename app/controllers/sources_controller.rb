@@ -1,10 +1,15 @@
 class SourcesController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :update]
+  before_filter :correct_user, :only => [:edit, :update, :destroy]
+  
   # GET /sources
   # GET /sources.xml
   def index
     #@sources = Source.all
     
      @sources = Source.search(params[:search], params[:page])
+     
+     @title = "Sources"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +21,8 @@ class SourcesController < ApplicationController
   # GET /sources/1.xml
   def show
     @source = Source.find(params[:id])
+
+    @title = "Source Details"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,6 +36,8 @@ class SourcesController < ApplicationController
     @source = Source.new
     
     @source.event_id = params[:ref]
+    
+    @title = "Add Source"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -90,4 +99,12 @@ class SourcesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def correct_user
+      @source = Source.find(params[:id])
+      redirect_to(root_path) unless current_user?(@source.user) || current_user.admin?
+  end
+  
 end
