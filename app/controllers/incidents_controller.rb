@@ -9,10 +9,10 @@ class IncidentsController < ApplicationController
   def index
     @title = "Incidents"
     
-    sort_column = "updated_at" unless sort_column
-    sort_direction = "desc" unless sort_direction
+    # sort_column = "updated_at" unless sort_column
+    # sort_direction = "desc" unless sort_direction
         
-    @incidents = Incident.search(params[:name], params[:pvname], params[:TargetType], params[:AttackerType]).order(sort_column + " " + sort_direction).paginate(:per_page => 6, :page => params[:page])
+    @incidents = Incident.search(params[:name], params[:pvname], params[:TargetType], params[:AttackerType]).order(sort_column + " " + sort_direction).paginate(:per_page => 3, :page => params[:page])
     
   respond_to do |format|
       format.html # index.html.erb
@@ -111,7 +111,7 @@ class IncidentsController < ApplicationController
   end
 
   def sort_column
-    Incident.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Incident.column_names.include?(params[:sort]) ? params[:sort] : "firstseen"
   end
   
   def sort_direction
