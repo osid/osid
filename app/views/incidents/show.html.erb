@@ -10,44 +10,44 @@
 <p id="notice"><%= notice %></p>
 
 <h4>Classification</h4>
-<table cellpadding="5" border="o">
-  <colgroup>
-    <col width="150">
-    <col width="100">    
-    <col width="300">    
-    <col width="150">    
-  </colgroup>  
-  <tr>
-    <td valign="top" align="left"><b>OSID ID:</b></td>
-    <td valign="top" colspan="3"><%= @incident.id %></td>
-</tr>
-  <tr>
-    <td valign="top" align="left"><b>Name:</b></td>
-    <td valign="top" colspan="3"><%= @incident.name %></td>
-</tr>
-<tr>
-    <td valign="top" align="left"><b>First Seen:</b></td>
-    <td valign="top" colspan="3"><%= @incident.firstseen %></td>
-  </tr>    
-  <tr>
-    <td valign="top" align="left"><b>Primary Victim:</b></td>
-    <td valign="top" colspan="3"><%= @incident.pvsector.name %> / <%= @incident.pvname %></td>
-  </tr>
-    <td valign="top" align="left"><b>Secondary Victim:</b></td>
-    <td valign="top" colspan="3"><%= @incident.pvsector.name %> / <%= @incident.svname %></td>
-  </tr> 
-  <tr>
-    <td valign="top" align="left"><b>Attack Description:</b></td>
-    <td valign="top" colspan="3"><%= @incident.attack.name %> / <%= @incident.attackdescription %></td>
-  </tr>
-  <tr>
-    <td valign="top" align="left"><b>Attacker Description:</b></td>
-    <td valign="top" colspan="3"><%= @incident.attacker.name %> / <%= @incident.attackerdescription %></td>
-  </tr>
-  <tr>
-    <td valign="top" align="left"><b>Target Description:</b></td>
-    <td valign="top" colspan="3"><%= @incident.target.name %> / <%= @incident.targetdescription %></td>
-  </tr>
+<table cellpadding="5" border="0">
+	<colgroup>
+    	<col width="150">
+    	<col width="100">    
+    	<col width="300">    
+    	<col width="150">    
+	</colgroup>  
+	<tr>
+    	<td valign="top" align="left"><b>OSID ID:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.id %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="left"><b>Name:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.name %></td>
+	</tr>
+	<tr>
+    	<td valign="top" align="left"><b>First Seen:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.firstseen %></td>
+  	</tr>    
+	<tr>
+		<td valign="top" align="left"><b>Primary Victim:</b></td>
+		<td valign="top" colspan="3"><%= @incident.pvsector.name %> / <%= @incident.pvname %></td>
+	</tr>
+    	<td valign="top" align="left"><b>Secondary Victim:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.pvsector.name %> / <%= @incident.svname %></td>
+  	</tr> 
+  	<tr>
+    	<td valign="top" align="left"><b>Attack Description:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.attack.name %> / <%= @incident.attackdescription %></td>
+  	</tr>
+  	<tr>
+    	<td valign="top" align="left"><b>Attacker Description:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.attacker.name %> / <%= @incident.attackerdescription %></td>
+  	</tr>
+  	<tr>
+    	<td valign="top" align="left"><b>Target Description:</b></td>
+    	<td valign="top" colspan="3"><%= @incident.target.name %> / <%= @incident.targetdescription %></td>
+  	</tr>
 </table>
 
 <h4>Description</h4>
@@ -61,7 +61,7 @@
 <h4>Timeline</h4>
 	<table cellpadding="5" border="0">
 		<colgroup>
-		    <col width="100">
+		    <col width="150">
 		    <col width="400">    
 		    <col width="100">       
 			<col width="100"> 
@@ -83,7 +83,7 @@
 <h4>Changes</h4>
 	<table cellpadding="5" border="0">
 		<colgroup>
-		    <col width="100">
+		    <col width="150">
 		    <col width="200">    
 		 </colgroup>
 		<tr>
@@ -92,10 +92,10 @@
 		</tr>
 		<tr>
 			<td><b>Created at:</b></td>
-			<td><%= @incident.created_at %></td>
+			<td><%= @incident.created_at.strftime("%Y-%m-%d") %></td>
 		</tr>
 		<tr>
 			<td><b>Updated at:</b></td>
-			<td><%= @incident.updated_at %></td>
+			<td><%= @incident.updated_at.strftime("%Y-%m-%d") %></td>
 		</tr>
 	</table>

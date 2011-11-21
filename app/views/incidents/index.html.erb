@@ -37,9 +37,9 @@
 			
 	<table class="pretty" id="rounded-corner" width="910">
 	  <colgroup>
-	    <col width="150">
-		<col width="150">
-	    <col width="200">
+	    <col width="120">
+		<col width="120">
+	    <col width="300">
 	    <col width="150">
 	    <col width="100">
 	    <col width="100">
@@ -59,7 +59,7 @@
 		<% @incidents.each do |incident| %>
 		<tr>
 			<td><%= incident.firstseen %></td>
-			<td><%= incident.updated_at %></td>
+			<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
 	    	<td><%= link_to incident.name, incident %></td>
 	    	<td><%= incident.pvname %></td>
 	    	<td><%= incident.target.name %></td>
