@@ -1,8 +1,9 @@
-.bundle
+
 log/*.log
 tmp/
 *.log
 *.swp
+*.sqlite
 *~
 .project
 .DS_Store
