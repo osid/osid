@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @weakness.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @weakness.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_weakness_path(@weakness) %> |
+<%= link_to 'Back', weaknesses_path %>

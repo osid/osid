@@ -9,7 +9,9 @@
       <% end %>
       </ul>
     </div>
+
   <% end %>
+
 
 <table cellpadding="5" border="0">
 	<colgroup>
@@ -19,28 +21,22 @@
     	<col width="250">    
 	</colgroup>  
 	<tr>
-    	<td valign="top" align="right"><b><%= f.label :name %></b></td>
+    	<td valign="top" align="right"><b>Title</b></td>
     	<td valign="top" ><%= f.text_field :name %></td>
-    	<td valign="top" align="right"><b><%= f.label :publishingdate %></b></td>
-    	<td valign="top" ><%= f.date_select :publishingdate %></td>
-	</tr>
 	<tr>
     	<td valign="top" align="right"><b><%= f.label :reference %></b></td>
     	<td valign="top" colspan="3"><%= f.text_field :reference, :size => "100" %></td>
 	</tr>
-	<tr>
-    	<td valign="top" align="right"><b><%= f.label :summary %></b></td>
-    	<td valign="top" colspan="3"><%= f.text_area :summary, :size => "100x10"  %></td>
-	</tr>
-	<tr>
-    	<td valign="top" align="right"><b><%= f.label :publisher %></b></td>
-    	<td valign="top" ><%= f.text_field :publisher %></td>
-    	<td valign="top" align="right"><b><%= f.label :media %></b></td>
-    	<td valign="top" ><%= f.text_field :media %></td>
-	</tr>
+	
+	
 </table>
-  <%= f.hidden_field :event_id, :value => @source.event_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<%= f.hidden_field :event_id, :value => @source.event_id %>
+  		<div class="actions">
+    		<%= f.submit %>
+  		</div>
 <% end %>
+
+
+
+
+

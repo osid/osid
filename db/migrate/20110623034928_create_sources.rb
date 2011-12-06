@@ -9,7 +9,6 @@ class CreateSources < ActiveRecord::Migration
       t.integer :user_id
       t.integer :event_id
       t.string :reference
-
       t.timestamps
     end
   end

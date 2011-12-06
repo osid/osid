@@ -37,6 +37,9 @@
 			
 	<table class="pretty" id="rounded-corner" width="910">
 	  <colgroup>
+		<% if signed_in? && admin? %>
+		<col width="5">
+		<% end %>
 	    <col width="120">
 		<col width="120">
 	    <col width="300">
@@ -44,7 +47,10 @@
 	    <col width="100">
 	    <col width="100">
 	  </colgroup>
-	  <tr>
+	  <tr valign="top" align="left">
+		<% if signed_in? && admin? %>
+	    <th>Rev</th>
+		<% end %>
 	    <th><%= sortable "firstseen", "First Seen"%></th>
 		<th><%= sortable "updated_at", "Updated at" %></th>
 	    <th>Name</th>
@@ -57,18 +63,32 @@
 	    <% end %>
 	  </tr>
 		<% @incidents.each do |incident| %>
-		<tr>
-			<td><%= incident.firstseen %></td>
-			<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
-	    	<td><%= link_to incident.name, incident %></td>
-	    	<td><%= incident.pvname %></td>
-	    	<td><%= incident.target.name %></td>
-	    	<td><%= incident.attacker.name %></td>
+
 			<% if signed_in? && admin? %>
+				<tr valign="top" align="left">
+		    		<td><%= incident.reviewed %></td>		
+					<td><%= incident.firstseen %></td>
+					<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
+	    			<td><%= link_to incident.name, incident %></td>
+	    			<td><%= incident.pvname %></td>
+	    			<td><%= incident.target.name %></td>
+	    			<td><%= incident.attacker.name %></td>
 	    			<td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-	    			<td><%= link_to 'Destroy', incident, :confirm => 'Are you sure?', :method => :delete %></td>
+	    			<td><%= link_to 'Del', incident, :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>
+			<% else %>
+				<% if incident.reviewed %>
+				<tr valign="top" align="left">
+					<td><%= incident.firstseen %></td>
+					<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
+	    			<td><%= link_to incident.name, incident %></td>
+	    			<td><%= incident.pvname %></td>
+	    			<td><%= incident.target.name %></td>
+	    			<td><%= incident.attacker.name %></td>
+				</tr>
+				<% end %>
 			<% end %>
-		</tr>
+
 		<% end %>
 	</table>
 <% end %>

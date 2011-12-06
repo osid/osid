@@ -1,17 +1,21 @@
 <h2>The latest website stats</h2>
 <p>
 <table>
+	<colgroup>
+  		<col width="100">
+		<col width="100">
+	</colgroup>
 	<tr>
-		<td>Nr. Incidents: </td><td><%= @incidents_count %> </td><td>latest update: </td><td><%= @incidents_latest.created_at.strftime("%Y-%m-%d") if @incidents_latest  %></td>
+		<td># Incidents: </td><td><%= @incidents_count %> </td><td>updated at: </td><td><%= @incidents_latest.created_at.strftime("%Y-%m-%d") if @incidents_latest  %></td>
 		</tr>
 		<tr>
-		<td>Nr. Events:  </td><td><%= @events_count %> </td><td>latest update: </td><td><%=  @events_latest.created_at.strftime("%Y-%m-%d") if @events_latest %></td>
+		<td># Events:  </td><td><%= @events_count %> </td><td>updated at: </td><td><%=  @events_latest.created_at.strftime("%Y-%m-%d") if @events_latest %></td>
 		</tr>
 		<tr>
-		<td>Nr. Sources: </td><td><%= @sources_count %> </td><td>latest update: </td><td><%=  @sources_latest.created_at.strftime("%Y-%m-%d") if @sources_latest %></td>
+		<td># Sources: </td><td><%= @sources_count %> </td><td>updated at: </td><td><%=  @sources_latest.created_at.strftime("%Y-%m-%d") if @sources_latest %></td>
 		</tr>
 		<tr>
-		<td>Nr. Users:  </td><td><%= @users_count %> </td><td>latest update: </td><td><%=  @users_latest.created_at.strftime("%Y-%m-%d") if @users_latest %></td>
+		<td># Users:  </td><td><%= @users_count %> </td><td>updated at: </td><td><%=  @users_latest.created_at.strftime("%Y-%m-%d") if @users_latest %></td>
 	</tr>
 </table>				
 </p>

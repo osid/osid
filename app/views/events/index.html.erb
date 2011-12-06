@@ -12,7 +12,7 @@
   <tr>
     <th colspan="100%" align="center"><%= will_paginate @events %></th>
   </tr>
-  <tr>
+  <tr valign="top" align="left">
     <th>Date</th>
     <th>Name</th>
     <th>Sources</th>
@@ -24,7 +24,7 @@
   </tr>
 
 <% @events.each do |event| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= event.date %></td>
     <td><%= link_to event.name, event %></td>
     <td><%= event.sources.count %></td>

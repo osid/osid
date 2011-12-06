@@ -1,0 +1,8 @@
+Organized Crime|
+Script Kiddies|
+Hacktivist| Group or individual that acts based on politically or socially motivated purpose
+Internal Accidential|
+Internal Malicious|
+State Level|
+Unknown|
+Other|

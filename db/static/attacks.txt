@@ -1,0 +1,9 @@
+Website Penetration|Attacking an enterprise over a website
+General System Penetration|
+Phishing|
+Drive by Infections|
+General Malware|
+Missbehavior|
+Stolen IT-Equipment|
+Document Disposal|
+Communication Interception|

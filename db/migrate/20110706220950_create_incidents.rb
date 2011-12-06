@@ -16,7 +16,7 @@ class CreateIncidents < ActiveRecord::Migration
       t.string :targetdescription
       t.integer :target_id
       t.integer :country_id
-
+   
       t.timestamps
     end     
   end

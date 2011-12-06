@@ -1,6 +1,13 @@
 <h1>Listing countries</h1>
-
-<table>
+<p>
+<table lass="pretty" id="rounded-corner">
+	<colgroup>
+  		<col width="300">
+		<col width="100">
+		<col width="50">
+		<col width="50">
+		<col width="200">
+	</colgroup>
   <tr>
     <th>Name</th>
     <th>Code</th>
@@ -10,7 +17,7 @@
   </tr>
 
 <% @countries.each do |country| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= country.name %></td>
     <td><%= country.code %></td>
     <td><%= link_to 'Show', country %></td>
@@ -19,7 +26,5 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
+<p>
 <%= link_to 'New Country', new_country_path %>

@@ -1,6 +1,8 @@
 Osid3::Application.routes.draw do |map|
 
 
+  resources :weaknesses
+
   resources :searches
 
   resources :attacks

@@ -6,6 +6,7 @@ class Incident < ActiveRecord::Base
   belongs_to :attack
   belongs_to :target
   belongs_to :country
+  belongs_to :weakness
   has_many :events, :dependent => :destroy
   
   def self.search(name, pvname, target_id, attacker_id)

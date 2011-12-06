@@ -1,0 +1,9 @@
+Citizens|
+Consumers|
+Customers|
+Customers - Private|
+Customers - Corporate|
+Students, Schoolars|
+Multiple|
+Others|
+None|

@@ -1,0 +1,3 @@
+Bad configuration|
+Zero day|
+Unpatched vulnerability|

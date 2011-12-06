@@ -1,6 +1,12 @@
-<h1>Listing svsectors</h1>
-
-<table>
+<h1>Listing Secondary Victim Sectors</h1>
+<p>
+<table lass="pretty" id="rounded-corner">
+	<colgroup>
+		<col width="400">
+		<col width="400">
+		<col width="50">
+		<col width="50">
+	</colgroup>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -10,16 +16,13 @@
   </tr>
 
 <% @svsectors.each do |svsector| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= svsector.name %></td>
     <td><%= svsector.description %></td>
-    <td><%= link_to 'Show', svsector %></td>
     <td><%= link_to 'Edit', edit_svsector_path(svsector) %></td>
-    <td><%= link_to 'Destroy', svsector, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', svsector, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Svsector', new_svsector_path %>
+<p>
+<%= link_to 'Add new Secondary Victim Sector', new_svsector_path %>

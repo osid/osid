@@ -1,0 +1,23 @@
+Oil & Gas|Oil & Gas Producers, Oil Equipment, Services & Distribution, Alternative Energy
+Basic Materials - Chemicals|Commodity Chemicals, Specialty Chemicals
+Basic Materials - Basic Resources|Forestry, Paper, Industrial Metals & Mining
+Industrials -	Construction & Materials|Building Materials & Fixtures and Heavy Construction
+Industrials	- Industrial Goods & Services|Aerospace, Defense, General Industrials, Electronic & Electronical Equipment, Industrial Engineering, Industrial Transportation, Support Services
+Consumer Goods - Automobiles & Parts|Automobiles, Auto Parts
+Consumer Goods - Food & Beverage|Beverages, Food Producers
+Consumer Goods - Personal & Household Goods|Household Goods & Home Construction, Leisure Goods, Personal Goods, Tabacco
+Health Care	Health Care	|Health Care Equipment & Services, Pharmaceuticals & Biotech
+Consumer Services -	Retail|Food & Drug Retailers, General Retailers
+Consumer Services - Media|Broadcasting & Entertainment, Media Agencies, Publishing
+Consumer Services - Travel & Leisure|Airlines, Gambling, Hotels, Recreational Services, Restaurants & Bars, Travel & Tourism
+Telecommunications|Fixed Line and Mobile Telecommunications
+Utilities	Utilities|Electricity (conventional, alternative), Gas, Water & Multi-utilities
+Financials - Banks|
+Financials - Insurance|Full Line Insurance, Insurance Brokers, Property & Casuality Insurance, Reinsurance, Life Insurance
+Financials - Real Estate|Real Estate Investment & Services, Real Estate Investment Trust
+Financials - Financial Services|Asset Managers, Consumer Finance, Specialty Finance, Investment Services, Mortgage Finance, Equity Investment Instruments
+Technology|Software & Computer Technology, Hardware & Equipment
+Government	Lawenforcement|Police
+Government	Defense	|Military Forces, Intelligence Agencies
+Government	Foreign Services|Embassies
+Government	Others|	

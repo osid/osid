@@ -1,0 +1,2 @@
+module WeaknessesHelper
+end

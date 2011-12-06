@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :except => [ :new, :create]
+  #before_filter :authenticate
   before_filter :correct_user, :only => [:edit, :update, :deactivate, :show]
-  before_filter :admin_user, :only => [:index, :destroy]
+  before_filter :admin_user, :only => [ :new, :create, :index, :destroy]
   
   # GET /users
   # GET /users.xml
@@ -77,6 +78,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path, :flash => { :success => "User destroyed." }
   end

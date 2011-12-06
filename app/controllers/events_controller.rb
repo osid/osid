@@ -20,6 +20,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     
+    @source = Source.new
+    @source.event_id = params[:ref]
+    
     @title = "Event Details"
 
     respond_to do |format|

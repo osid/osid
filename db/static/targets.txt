@@ -1,0 +1,9 @@
+Access Credentials|Credentials that are used to access other systems like password, user id, private keys, etc.
+Credit Card Data|Credit card numbers and other card holder data
+Confidential Data|General confidential data such as construction plans, corporate strategies, etc.
+General PII|General personal identifying data such as names, addresses, telephone numbers, personal properties, etc.
+Special PII|Personal identifying data that is extra critical such as health data, user profiles, religious affiliation, information regarding criminal proceedings, etc.
+Sourcecode|Sourcecode of software
+Other|Other targets
+Multiple|Multiple targets
+Unknown|Target currently not know

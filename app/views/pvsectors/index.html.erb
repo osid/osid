@@ -1,6 +1,12 @@
-<h1>Listing pvsectors</h1>
-
-<table>
+<h1>Listing Primary Victim Sectors</h1>
+<p>
+<table lass="pretty" id="rounded-corner">
+	<colgroup>
+  		<col width="400">
+		<col width="400">
+		<col width="50">
+		<col width="50">
+	</colgroup>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -10,16 +16,13 @@
   </tr>
 
 <% @pvsectors.each do |pvsector| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= pvsector.name %></td>
     <td><%= pvsector.description %></td>
-    <td><%= link_to 'Show', pvsector %></td>
     <td><%= link_to 'Edit', edit_pvsector_path(pvsector) %></td>
-    <td><%= link_to 'Destroy', pvsector, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', pvsector, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Pvsector', new_pvsector_path %>
+<p>
+<%= link_to 'Add new Primary Victim Sector', new_pvsector_path %>

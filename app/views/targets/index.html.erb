@@ -1,6 +1,13 @@
-<h1>Listing targets</h1>
-
-<table>
+<h1>Listing Targets</h1>
+<p>
+<table class="pretty" id="rounded-corner" >
+	<colgroup>
+  		<col width="200">
+		<col width="500">
+		<col width="50">
+		<col width="50">
+		<col width="50">
+	</colgroup>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -10,16 +17,22 @@
   </tr>
 
 <% @targets.each do |target| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= target.name %></td>
     <td><%= target.description %></td>
+	<% if signed_in? && (admin? || own_object(@incident)) %>
     <td><%= link_to 'Show', target %></td>
     <td><%= link_to 'Edit', edit_target_path(target) %></td>
     <td><%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% else %>
+	<td></td>
+	<td></td>
+	<td></td>
+	<% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
+<p>
 
 <%= link_to 'New Target', new_target_path %>

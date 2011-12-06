@@ -1,0 +1,2 @@
+anonymous|anonymous@anon.com|password|password|0|0|
+admin|n.schild@gmx.ch|password|password|1|1|

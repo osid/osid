@@ -1,8 +1,15 @@
 <h1>Listing users</h1>
-
+<p>
 <%= will_paginate @users %>
 
-<table>
+<table lass="pretty" id="rounded-corner">
+	<colgroup>
+  		<col width="200">
+		<col width="200">
+		<col width="50">
+		<col width="50">
+		<col width="200">
+	</colgroup>
   <tr>
     <th>Name</th>
     <th>Email</th>
@@ -15,7 +22,7 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.admin %></td>
@@ -29,5 +36,5 @@
   </tr>
 <% end %>
 </table>
-
+<p>
 <%= link_to 'New User', new_user_path %>

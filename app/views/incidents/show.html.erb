@@ -9,60 +9,70 @@
 
 <p id="notice"><%= notice %></p>
 
-<h4>Classification</h4>
 <table cellpadding="5" border="0">
-	<colgroup>
-    	<col width="150">
-    	<col width="100">    
-    	<col width="300">    
-    	<col width="150">    
-	</colgroup>  
-	<tr>
-    	<td valign="top" align="left"><b>OSID ID:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.id %></td>
-	</tr>
-	<tr>
-    	<td valign="top" align="left"><b>Name:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.name %></td>
-	</tr>
-	<tr>
-    	<td valign="top" align="left"><b>First Seen:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.firstseen %></td>
-  	</tr>    
-	<tr>
-		<td valign="top" align="left"><b>Primary Victim:</b></td>
-		<td valign="top" colspan="3"><%= @incident.pvsector.name %> / <%= @incident.pvname %></td>
-	</tr>
-    	<td valign="top" align="left"><b>Secondary Victim:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.pvsector.name %> / <%= @incident.svname %></td>
-  	</tr> 
-  	<tr>
-    	<td valign="top" align="left"><b>Attack Description:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.attack.name %> / <%= @incident.attackdescription %></td>
-  	</tr>
-  	<tr>
-    	<td valign="top" align="left"><b>Attacker Description:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.attacker.name %> / <%= @incident.attackerdescription %></td>
-  	</tr>
-  	<tr>
-    	<td valign="top" align="left"><b>Target Description:</b></td>
-    	<td valign="top" colspan="3"><%= @incident.target.name %> / <%= @incident.targetdescription %></td>
-  	</tr>
-</table>
-
-<h4>Description</h4>
-<table cellpadding="5" border="0">
-  <tr>
-    <td valign="top" align="right"><b></b></td>
-    <td valign="top" colspan="3" colspan="3"><%= @incident.summary %></td>
-  </tr>
+<colgroup>
+     <col width="150">
+     <col width="365">
+</colgroup>
+<tr>
+	<td valign="top" align="left"><b>OSID ID</b></td>
+    <td valign="top" colspan="2" ><%= @incident.id %></td>
+</tr>
+<tr>
+     <td valign="top" align="left"><b>Name</b></td>
+     <td valign="top" colspan="2" ><%= @incident.name %></td>
+</tr>
+<tr>
+	<td valign="top" align="left"><b><b>First Seen</b</b></td>
+    <td valign="top" colspan="2" ><%= @incident.firstseen %></td>
+</tr>
+<tr>
+     <td valign="top" align="left"><b>Summary</b></td>
+     <td valign="top" colspan="2"><%= @incident.summary %></td>
+</tr>
+<tr>
+	<td><b>Reviewed</b></td>
+	<td><%= @incident.reviewed %></td>
+</tr>
+<tr>
+	<td></td>
+</tr>
+<tr>
+	<td valign="top" align="center"></td>
+	<td valign="top" align="center"><b>Classification</b></td>
+    <td valign="top" align="center"><b>Description</b></td>
+</tr>
+<tr>
+	<td valign="top" align="left"><b>Primary Victim</b></td>
+	<td valign="top" ><%= @incident.pvsector.name %></td>
+	<td valign="top" ><%= @incident.pvname %></td>
+</tr>
+<tr>
+	<td valign="top" align="left"><b>Attack</b></td>
+    <td valign="top" ><%= @incident.attack.name %></td>
+    <td valign="top" ><%= @incident.attackdescription %></td>
+</tr>
+<tr>
+	<td valign="top" align="left"><b>Attacker</b></td>
+    <td valign="top" ><%= @incident.attacker.name %></td>
+    <td valign="top" ><%= @incident.attackerdescription %></td>
+</tr>
+<tr>
+	<td valign="top" align="left"><b>Target</b></td>
+    <td valign="top" ><%= @incident.target.name %></td>
+    <td valign="top" ><%= @incident.targetdescription %></td>
+</tr>
+<tr>
+	<td valign="top" align="left"><b>Country</b></td>
+    <td valign="top" ><%= @incident.country.name	 %></td>
+</tr>
 </table>
 
 <h4>Timeline</h4>
 	<table cellpadding="5" border="0">
 		<colgroup>
 		    <col width="150">
-		    <col width="400">    
+		    <col width="500">    
 		    <col width="100">       
 			<col width="100"> 
 		 </colgroup>

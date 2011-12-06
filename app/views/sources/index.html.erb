@@ -4,7 +4,7 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Title</th>
     <th>Summary</th>
     <th>Publisher</th>
     <th>Media</th>
@@ -18,7 +18,7 @@
   </tr>
 
 <% @sources.each do |source| %>
-  <tr>
+  <tr valign="top" align="left">
     <td><%= source.name %></td>
     <td><%= source.summary %></td>
     <td><%= source.publisher %></td>

@@ -5,64 +5,83 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-      
-    Country.create( :name => "Switzerland", :code => "CH")
-    Country.create( :name => "Germanry", :code => "DE")
-    Country.create( :name => "United Kingdom", :code => "UK")
-    Country.create( :name => "United States", :code => "US")
-    
-    Pvsector.create( :name => "Education", :description => "Schools, Universities, etc.")
-    Pvsector.create( :name => "Entertainment and Media", :description => "Media companies, Game, Video, etc.")
-    Pvsector.create( :name => "Government", :description => "Government agencies")
-    Pvsector.create( :name => "Consumer/Enduser", :description => "Consumer of goods and endusers")
-    
-    Svsector.create( :name => "Education", :description => "Schools, Universities, etc.")
-    Svsector.create( :name => "Entertainment and Media", :description => "Media companies, Game, Video, etc.")
-    Svsector.create( :name => "Government", :description => "Government agencies")
-    Svsector.create( :name => "Consumer/Enduser", :description => "Consumer of goods and endusers")
 
-    Target.create( :name => "PII", :description => "General Personal Identifying Data")
-    Target.create( :name => "Credit Card Data")
-    Target.create( :name => "Access Credentials")
-    Target.create( :name => "Enterprise Confidential Data")
-    Target.create( :name => "Other")
-    
-    Attacker.create( :name => "Organized Crime")
-    Attacker.create( :name => "Structured Threads")
-    Attacker.create( :name => "Script Kiddies")
-    Attacker.create( :name => "Hacktivists")
-    Attacker.create( :name => "Internal Accidential")
-    Attacker.create( :name => "Internal Malicious")
-    Attacker.create( :name => "State/Intelligence Agency/Information Warfare")
-    Attacker.create( :name => "Unknown")
-                    
-    Attack.create( :name => "Website Penetration")
-    Attack.create( :name => "General System Penetration")
-    Attack.create( :name => "Phishing")
-    Attack.create( :name => "Drive by Infections")
-    Attack.create( :name => "General Malware")
-    Attack.create( :name => "Missbehaviour")
-    Attack.create( :name => "Stolen IT-Equipment")
-    Attack.create( :name => "Document Disposal")
-    Attack.create( :name => "Communication Interception")
+# Load country codes
+  Country.delete_all
+    open("/Users/nik/Development/osid/db/static/countrycodes.txt") do |countries|
+      countries.read.each_line do |country|
+      code, name = country.chomp.split("|")
+      Country.create!(:name => name, :code => code)
+    end
+  end
+  puts "Loaded country codes"
 
-    Blogpost.create( :header => "Welcome on the new OSID news feed", :content => "This is the new OSID news feed with lots of information....")
-    Blogpost.create( :header => "News 1", :content => "just some text....")
-    Blogpost.create( :header => "News 2", :content => "just some text....")
-    Blogpost.create( :header => "news 3", :content => "just some text....")
-    
-    Incident.create( :name => "RSA Hack", :summary => "RSA Hack Summary", :user_id => 2, :pvsector_id => 1, :svsector_id => 1, :attacker_id => 1, :target_id => 1, :country_id => 1)
-    Incident.create( :name => "Hack 1", :summary => "Hack 1 Summary", :user_id => 3, :pvsector_id => 1, :svsector_id => 1, :attacker_id => 1, :target_id => 1, :country_id => 1)
-    Incident.create( :name => "Hack 2", :summary => "Hack 2 Summary", :user_id => 1, :pvsector_id => 1, :svsector_id => 1, :attacker_id => 1, :target_id => 1, :country_id => 1)
-    Incident.create( :name => "Hack 3", :summary => "Hack 3 Summary", :user_id => 3, :pvsector_id => 1, :svsector_id => 1, :attacker_id => 1, :target_id => 1, :country_id => 1)
-    Incident.create( :name => "Hack 4", :summary => "Hack 4 Summary", :user_id => 3, :pvsector_id => 1, :svsector_id => 1, :attacker_id => 1, :target_id => 1, :country_id => 1)
-    Incident.create( :name => "Hack 5", :summary => "Hack 5 Summary", :user_id => 1, :pvsector_id => 1, :svsector_id => 1, :attacker_id => 1, :target_id => 1, :country_id => 1)
-    
-    Event.create( :name => "News from the RSA Hack", :user_id => 2, :description => "This is the description of the new hack", :incident_id => 1)
-    Event.create( :name => "RSA goes public", :user_id => 3, :description => "RSA goes public", :incident_id => 1)
-    
-    Source.create( :name => "RSA Hacked by criminals", :addition_id => 1, :user_id => 2, :summary => "reports say that criminals hacked the RSA infrastructure", :publisher => "The Register", :reference => "www.theregister.co.uk")
-    Source.create( :name => "Public Letter from RSA", :addition_id => 2, :user_id => 3, :summary => "Art Coviello's Mea Culpa", :publisher => "RSA Inc", :reference => "www.rsa.com/openletter")
-    Source.create( :name => "What realy happend", :addition_id => 1, :user_id => 2, :summary => "A behind the sceens report", :publisher => "Ars Technica", :reference => "www.ars.com")
+# Load initial users
+#  User.delete_all
+#    open("/Users/nik/Development/osid/db/static/users.txt") do |users|
+#      users.read.each_line do |user|
+#        name, email, password, password_conf, admin, active = user.chomp.split("|")
+#        User.create!(:name => name, :email => email, :password => password, :password_conf => password_conf, :admin => admin, :active => active)
+#      end
+#    end
+#    puts "Loaded users"
 
-    
+# Load pvsectors
+  Pvsector.delete_all
+    open("/Users/nik/Development/osid/db/static/pvsectors.txt") do |pvsector|
+      pvsector.read.each_line do |pvsector|
+        name, description = pvsector.chomp.split("|")
+        Pvsector.create!(:name => name, :description => description)
+      end
+    end
+    puts "Loaded pvsector"
+
+# Load svsectors
+  Svsector.delete_all
+    open("/Users/nik/Development/osid/db/static/svsectors.txt") do |svsector|
+      svsector.read.each_line do |svsector|
+        name, description = svsector.chomp.split("|")
+        Svsector.create!(:name => name, :description => description)
+      end
+    end
+    puts "Loaded svsector"
+
+# Load weaknesses
+Weakness.delete_all
+  open("/Users/nik/Development/osid/db/static/weaknesses.txt") do |weakness|
+    weakness.read.each_line do |weakness|
+      name, description = weakness.chomp.split("|")
+      Weakness.create!(:name => name, :description => description)
+    end
+  end
+  puts "Loaded weaknesses"
+
+# Load attacks
+  Attack.delete_all
+    open("/Users/nik/Development/osid/db/static/attacks.txt") do |attacks|
+      attacks.read.each_line do |attacks|
+        name, description = attacks.chomp.split("|")
+        Attack.create!(:name => name, :description => description)
+      end
+    end
+    puts "Loaded attacks"
+
+# Load attacker
+      Attacker.delete_all
+        open("/Users/nik/Development/osid/db/static/attacker.txt") do |attacker|
+          attacker.read.each_line do |attacker|
+            name, description = attacker.chomp.split("|")
+            Attacker.create!(:name => name, :description => description)
+          end
+        end
+        puts "Loaded attacker"
+
+# Load targets
+  Target.delete_all
+    open("/Users/nik/Development/osid/db/static/targets.txt") do |targets|
+      targets.read.each_line do |target|
+        name, description = target.chomp.split("|")
+        Target.create!(:name => name, :description => description)
+        end
+    end
+    puts "Loaded targets"

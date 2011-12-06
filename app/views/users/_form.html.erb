@@ -20,10 +20,25 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+
+<div class="field">
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+</div>
+<div class="field">
+  <%= f.label :password_confirmation, "Confirmation" %><br />
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<!--
   <div class="field">
     <%= f.label :encrypted_password %><br />
     <%= f.text_field :encrypted_password %>
-  </div>  
+  </div> 
+-->
+
+
+<% if signed_in? && admin? %>
   <div class="field">
     <%= f.label :admin %><br />
     <%= f.check_box :admin %>
@@ -34,8 +49,10 @@
   </div>
   <div class="field">
     <%= f.label :lastlogin %><br />
-    <%= f.datetime_select :lastlogin %>
-  </div>
+    <%= @user.lastlogin %>
+  </div> 
+<% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

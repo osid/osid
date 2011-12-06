@@ -1,13 +1,70 @@
 <h1>Admin</h1>
 <p>
-<%= link_to 'Admin Users', users_path %> <p>
-<%= link_to 'Admin Incidents', incidents_path %> <p>
-<%= link_to 'Admin Updates', events_path %> <p>
-<%= link_to 'Admin Sources', sources_path %> <p>
-<%= link_to 'Admin Targets', targets_path %> <p>
-<%= link_to 'Admin Attackers', attackers_path %> <p>
-<%= link_to 'Admin Attacks', attacks_path %> <p>
-<%= link_to 'Admin Primary Victim Sectors', pvsectors_path %> <p>
-<%= link_to 'Admin Secondary Victim Sectors', svsectors_path %> <p>
-<%= link_to 'Admin Countries', countries_path %> <p>
-<%= link_to 'Admin Blogposts', blogposts_path %> <p>
+	<table lass="pretty" id="rounded-corner">
+		<colgroup>
+	  		<col width="200">
+			<col width="50">
+			<col width="100">
+		</colgroup>
+		<tr>
+	    	<th>Item</th>
+	    	<th>Numbers</th>
+			<th>Last Updated</th>
+	  	</tr>
+	
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Users', users_path %></td>
+			<td><%= @users_count %></td>
+			<td><%= @users_latest %></td>		
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Blogposts', blogposts_path %>
+			<td><%= @blogposts_count %>	
+			<td><%= @blogposts_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Incidents', incidents_path %>
+			<td><%= @incidents_count %>	
+			<td><%= @incidents_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Events', events_path %>
+			<td><%= @events_count %>	
+			<td><%= @events_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Sources', sources_path %>
+			<td><%= @sources_count %>	
+			<td><%= @sources_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Targets', targets_path %>
+			<td><%= @targets_count %>	
+			<td><%= @targets_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Attackers', attackers_path %> 
+			<td><%= @attackers_count %>	
+			<td><%= @attackers_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Attacks', attacks_path %> 
+			<td><%= @attack_count %>	
+			<td><%= @attack_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Primary Victim Sectors', pvsectors_path %> 
+			<td><%= @pvsector_count %>	
+			<td><%= @pvsector_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Secondary Victim Sectors', svsectors_path %> 
+			<td><%= @svsector_count %>	
+			<td><%= @svsector_latest %>
+		</tr>
+		<tr valign="top" align="left">	
+			<td><%= link_to 'Countries', countries_path %> 
+			<td><%= @country_count %>	
+			<td><%= @country_latest %>
+		</tr>
+</table>

@@ -63,6 +63,8 @@ class IncidentsController < ApplicationController
       @incident.user_id = 1
     end
     
+    @incident.reviewed = false
+    
 
     respond_to do |format|
       if @incident.save

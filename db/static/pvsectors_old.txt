@@ -1,0 +1,28 @@
+Accommodation, Restaurants and Recreation Services|
+Chemicals, Chemical Products and Textiles|
+Communications|
+Communications - Postal and Courier Services|
+Communications - Printing and Publishing|
+Communications - Telecommunication Broadcasting|
+Construction|
+Consumer Goods and Services|
+Education|
+Electrical and Electronic|
+Energy|
+Finance and Insurance|
+Food Retailing|
+Food, Beverage and Tobacco|
+Government - Defence Services|
+Government - Federal Protective Services|
+Government - Foreign Affairs|
+Government - General|
+Government - Law Enforcement|
+Government - Others|
+Health and Social Services|
+IT - General|
+IT - Services|
+IT - Software|
+Machinery and Equipment|
+Manufacturing|
+Transportation Equipment|
+Transportation Services|

@@ -25,20 +25,12 @@
   <tr>
     <td valign="top" align="right"><b>Belongs to Event:</b></td>
     <td valign="top" colspan="3"><%= link_to @source.event.name, @source.event %></td>
+  </tr> 
+<tr>
+    <td valign="top" align="right"><b>Title:</b></td>
+    <td valign="top" colspan="3"><%= @source.name %></td>
   </tr>
-  <tr>
-    <td valign="top" align="right"><b>Published at:</b></td>
-    <td valign="top" colspan="3"><%= @source.publishingdate %></td>
-  </tr>
-  <tr>
-    <td valign="top" align="right"><b>Summary:</b></td>
-    <td valign="top" colspan="3"><%= @source.summary %></td>
-  </tr>  
-  <tr>
-    <td valign="top" align="right"><b>Publisher:</b></td>
-    <td valign="top" colspan="3"><%= @source.publisher %></td>
-  </tr>
-  <tr>
+<tr>
     <td valign="top" align="right"><b>Reference:</b></td>
     <td valign="top" colspan="3"><%= link_to @source.reference, @source.reference %></td>
   </tr>  

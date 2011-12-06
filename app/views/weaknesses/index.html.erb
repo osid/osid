@@ -1,0 +1,32 @@
+<h1>Listing Weaknesses</h1>
+<p>
+<table lass="pretty" id="rounded-corner">
+	<colgroup>
+  		<col width="200">
+		<col width="200">
+		<col width="50">
+		<col width="50">
+		<col width="200">
+	</colgroup>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @weaknesses.each do |weakness| %>
+  <tr valign="top" align="left">
+    <td><%= weakness.name %></td>
+    <td><%= weakness.description %></td>
+    <td><%= link_to 'Show', weakness %></td>
+    <td><%= link_to 'Edit', edit_weakness_path(weakness) %></td>
+    <td><%= link_to 'Destroy', weakness, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p>
+
+<%= link_to 'New Weakness', new_weakness_path %>
