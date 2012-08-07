@@ -2,18 +2,18 @@
 <p>
 <table class="pretty" id="rounded-corner" >
 	<colgroup>
-  		<col width="200">
-		<col width="500">
-		<col width="50">
-		<col width="50">
-		<col width="50">
+  		<col width="100">
+		<col width="200">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	</colgroup>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<% if signed_in? && admin? %>
+		<th>Admin</th>
+	<% end %>
   </tr>
 
 <% @targets.each do |target| %>
@@ -21,18 +21,13 @@
     <td><%= target.name %></td>
     <td><%= target.description %></td>
 	<% if signed_in? && (admin? || own_object(@incident)) %>
-    <td><%= link_to 'Show', target %></td>
-    <td><%= link_to 'Edit', edit_target_path(target) %></td>
-    <td><%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>
-	<% else %>
-	<td></td>
-	<td></td>
-	<td></td>
+    	<td><%= link_to 'Show', target %> |
+    	<%= link_to 'Edit', edit_target_path(target) %> |
+    	<%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>
 	<% end %>
   </tr>
 <% end %>
 </table>
-
-<p>
-
+<% if signed_in? && admin? %>
 <%= link_to 'New Target', new_target_path %>
+<% end %>

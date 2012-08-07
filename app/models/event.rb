@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :sources, :dependent => :destroy 
   
   def self.search(search, page)
-        paginate :per_page => 3, :page => page,
+        paginate :per_page => 10, :page => page,
            :conditions => ['name like ?', "%#{search}%"],
            :order => 'name'
   end

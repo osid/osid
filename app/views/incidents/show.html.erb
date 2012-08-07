@@ -4,7 +4,7 @@
 <%= link_to 'Add Event', new_event_path(:ref => @incident.id) %>
 <% if signed_in? && (admin? || own_object(@incident)) %>
 | <%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Delete', @incident, :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Destroy', @incident, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
 
 <p id="notice"><%= notice %></p>

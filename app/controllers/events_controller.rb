@@ -62,7 +62,7 @@ class EventsController < ApplicationController
       @event.user_id = 1
     end
     
-    @event.date = 
+    @event.reviewed = false
        
     respond_to do |format|
       if @event.save

@@ -2,31 +2,33 @@
 <p>
 <table lass="pretty" id="rounded-corner">
 	<colgroup>
-  		<col width="200">
-		<col width="200">
-		<col width="50">
-		<col width="50">
-		<col width="200">
+  		<col width="100">
+		<col width="150">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	</colgroup>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<% if signed_in? && admin? %>
+		<th>Admin</th>
+	<% end %>
   </tr>
 
 <% @attacks.each do |attack| %>
   <tr valign="top" align="left">
     <td><%= attack.name %></td>
     <td><%= attack.description %></td>
-    <td><%= link_to 'Show', attack %></td>
-    <td><%= link_to 'Edit', edit_attack_path(attack) %></td>
-    <td><%= link_to 'Destroy', attack, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% if signed_in? && admin? %>
+    	<td><%= link_to 'Show', attack %> |
+    	<%= link_to 'Edit', edit_attack_path(attack) %> |
+		<%= link_to 'Destroy', attack, :confirm => 'Are you sure?', :method => :delete %>
+	<% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
+<% if signed_in? && admin? %>
 <%= link_to 'New Attack', new_attack_path %>
+<% end %>

@@ -20,7 +20,7 @@
 </colgroup>
 <tr>
 	<td valign="top" align="left"><b><%= f.label :firstseen, "First known event" %></b></td>
-    <td valign="top" colspan="2" ><%= f.date_select :firstseen %></td>
+    <td valign="top" colspan="2" ><%= f.text_field :firstseen %></td>
 </tr>
 <tr>
      <td valign="top" align="left"><b><%= f.label :name %></b></td>
@@ -30,15 +30,6 @@
 <tr>
      <td valign="top" align="left"><b><%= f.label :summary %></b></td>
      <td valign="top" colspan="2"><%= f.text_area :summary, :size => "96x10" %></td>
-</tr>
-<% if signed_in? && admin? %>
-<tr>
-	<td><b><%= f.label :reviewed %></b></td>
-	<td><%= f.check_box :reviewed %></td>
-</tr>
-<% end %>
-<tr>
-	<td></td>
 </tr>
 <tr>
 	<td valign="top" align="center"></td>
@@ -50,13 +41,6 @@
 	<td valign="top" ><%= f.select :pvsector_id, Pvsector.all.sort!{ |a,b| a.name <=> b.name }.collect {|sector| [ sector.name, sector.id ] } %></td>
 	<td valign="top" ><%= f.text_field :pvname, :size => "60" %></td>
 </tr>
-<!--
-<tr>
-	<td valign="top" align="left"><b>Secondary Victim</b></td>
-    <td valign="top" ><%= f.select :svsector_id, Svsector.order("name asc").collect {|sector| [ sector.name, sector.id ] } %></td>
-    <td valign="top" ><%= f.text_field :svname, :size => "60" %></td>
-</tr>
--->
 <tr>
 	<td valign="top" align="left"><b>Attack</b></td>
     <td valign="top" ><%= f.select :attack_id, Attack.order("name asc").collect {|attack| [ attack.name, attack.id ] } %></td>
@@ -78,6 +62,24 @@
 </tr>
 </table>  
 <br>
+
+<table>
+<% if signed_in? && admin? %>
+<colgroup>
+     <col width="100">
+     <col width="50">
+     <col width="100">
+     <col width="50">
+</colgroup>
+<tr>
+	<td><b><%= f.label :reviewed %></b></td>
+	<td><%= f.check_box :reviewed %></td>
+	<td><b><%= f.label :create_blog %></b></td>
+	<td><%= f.check_box :create_blog %></td>
+</tr>
+<% end %>
+</table>
+
 <br>
   <div class="actions">
     <%= f.submit %>

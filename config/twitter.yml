@@ -1,0 +1,6 @@
+development:
+  oauth_token: "712939885-YRrXdNMXGBEifNIlP1fbw6wA7uc3Y3uJmpFIZtm9"
+  oauth_token_secret: "FgKaJy9PIkeWEOJoOWAiO7HKCMHO4T8onZw6rT5OpY"
+production:
+  oauth_token: PRODUCTION_TWITTER_APP_TOKEN
+  oauth_token_secret: PRODUCTION_TWITTER_APP_SECRET

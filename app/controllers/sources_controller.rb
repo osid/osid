@@ -60,6 +60,8 @@ class SourcesController < ApplicationController
     else
       @source.user_id = 1
     end
+    
+    @source.reviewed = false
 
     respond_to do |format|
       if @source.save
@@ -86,6 +88,20 @@ class SourcesController < ApplicationController
         format.xml  { render :xml => @source.errors, :status => :unprocessable_entity }
       end
     end
+    
+    #if @source.reviewed
+        # create blog entry
+       # b = Blogpost.new()
+       # s = @source.event.id.to_s
+       # s2 = @source.name
+       # b.header = "New source added to OSID-ID: "+s+" / "+s2
+       # b.user_id = @source.user_id
+      #  b.save
+
+        # create tweet
+      #  b.tweet!
+     # end
+    
   end
 
   # DELETE /sources/1

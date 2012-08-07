@@ -2,25 +2,29 @@
 <p>
 <table lass="pretty" id="rounded-corner">
 	<colgroup>
-  		<col width="400">
-		<col width="400">
-		<col width="50">
-		<col width="50">
+  		<col width="150">
+		<col width="150">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	</colgroup>
+	
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<% if signed_in? && admin? %>
+		<th>Admin</th>
+	<% end %>
   </tr>
 
 <% @pvsectors.each do |pvsector| %>
   <tr valign="top" align="left">
     <td><%= pvsector.name %></td>
     <td><%= pvsector.description %></td>
-    <td><%= link_to 'Edit', edit_pvsector_path(pvsector) %></td>
-    <td><%= link_to 'Delete', pvsector, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% if signed_in? && admin? %>
+    	<td><%= link_to 'Edit', edit_pvsector_path(pvsector) %> |
+    	<%= link_to 'Delete', pvsector, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
   </tr>
 <% end %>
 </table>

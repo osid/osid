@@ -2,24 +2,43 @@
 <p>
 <%= will_paginate @blogposts %>
 <table lass="pretty" id="rounded-corner">
+	
 	<colgroup>
-	<col width="200">
-	<col width="200">
-	<col width="50">
-	<col width="50">
-	<col width="200">
-		</colgroup>
-		
-		
-<% @blogposts.each do |post| %>
-<tr valign="top" align="left">
-  <td><%= post.header %></td>
-  <td><%= post.updated_at.strftime("%Y-%m-%d") %></td>
-  <td><%= link_to 'Show', post %></td>
-  <td><%= link_to 'Edit', edit_blogpost_path(post) %></td>
-  <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-</tr>
-<% end %>
+		<col width="200">
+		<col width="50">
+		<col width="50">
+		<col width="50">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
+	</colgroup>
+	
+	<tr valign="top" align="left">
+    	<th>Header</th>
+    	<th>Date</th>
+    	<th>Author</th>
+		<th>Show</th>
+    	<% if signed_in? && admin? %>
+    		<th>Admin</th>
+    	<% end %>
+	</tr>
+			
+	<% @blogposts.each do |post| %>
+		<tr valign="top" align="left">
+  			<td><%= post.header %></td>
+  			<td><%= post.updated_at.strftime("%Y-%m-%d") %></td>
+ 			<td><%= post.user_id %></td>
+			<td><%= link_to 'Show', post %></td>
+			<% if signed_in? && admin? %>
+				<td>  				
+  					<%= link_to 'Edit', edit_blogpost_path(post) %>
+  					<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
 </table>
 <p>
-<%= link_to 'New Blogpost', new_blogpost_path %>
+<% if signed_in? && admin? %>
+	<%= link_to 'New Blogpost', new_blogpost_path %>
+<% end %>

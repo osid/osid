@@ -1,18 +1,22 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
-gem 'will_paginate', '3.0.pre2'
-gem 'sqlite3', '1.3.3'
+gem 'rails', '3.2.6'
+gem 'will_paginate', '~> 3.0'
+gem 'sqlite3', '~> 1.3.5'
+gem 'mysql2'
+gem 'prototype-rails'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'progress_bar'
+gem 'jquery-rails'
+gem 'twitter'
+gem 'oauth'
+
 
 group :development do
-  gem 'rspec-rails', '2.6.1'
-  gem 'annotate', '2.4.0'
-  gem 'faker', '0.3.1'
+
 end
 
 group :test do
-  gem 'rspec-rails', '2.6.1'
-  gem 'webrat', '0.7.1'
-  gem 'spork', '0.9.0.rc8'
-  gem 'factory_girl_rails', '1.0'
+
 end

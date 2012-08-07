@@ -1,0 +1,13 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "targets" VALUES(10,'Access Credentials','Credentials that are used to access other systems like password, user id, private keys, etc.','2011-12-03 12:10:29.766694','2011-12-03 12:10:29.766694');
+INSERT INTO "targets" VALUES(11,'Credit Card Data','Credit card numbers and other card holder data','2011-12-03 12:10:29.771353','2011-12-03 12:10:29.771353');
+INSERT INTO "targets" VALUES(12,'Confidential Data','General confidential data such as construction plans, corporate strategies, etc.','2011-12-03 12:10:29.773835','2011-12-03 12:10:29.773835');
+INSERT INTO "targets" VALUES(13,'General PII','General personal identifying data such as names, addresses, telephone numbers, personal properties, etc.','2011-12-03 12:10:29.776388','2011-12-03 12:10:29.776388');
+INSERT INTO "targets" VALUES(14,'Special PII','Personal identifying data that is extra critical such as health data, user profiles, religious affiliation, information regarding criminal proceedings, etc.','2011-12-03 12:10:29.778858','2011-12-03 12:10:29.778858');
+INSERT INTO "targets" VALUES(15,'Sourcecode','Sourcecode of software','2011-12-03 12:10:29.781274','2011-12-03 12:10:29.781274');
+INSERT INTO "targets" VALUES(16,'Other','Other targets','2011-12-03 12:10:29.783664','2011-12-03 12:10:29.783664');
+INSERT INTO "targets" VALUES(17,'Multiple','Multiple targets','2011-12-03 12:10:29.786121','2011-12-03 12:10:29.786121');
+INSERT INTO "targets" VALUES(18,'Unknown','Target currently not know','2011-12-03 12:10:29.788470','2011-12-03 12:10:29.788470');
+COMMIT;

@@ -5,85 +5,69 @@
 </p>
 
 <h2>Search and Browse the Incident Database</h2>
-
-<%= form_tag incidents_path, :method => 'get', :id => "incidents_search" do %>
+<%= form_tag incidents_path, :method => :get do %>
 	<p>
 		<table>
 			<colgroup>
-		    <col width="500">
-			<col width="200">
-		  </colgroup>
-			<tr><td>
-				<table>
-					<tr><td>Incident Name:</td><td><%= text_field_tag :name, params[:name] %></td></tr>
-					<tr><td>Primary Victimname:</td><td><%= text_field_tag :pvname, params[:pvname] %></td></tr>
-					<tr><td>Target Type:</td><td><%= select("TargetType", "target_id", Target.all.collect {|target| [ target.name, target.id ] }, :include_blank => true) %></td></tr>
-					<tr><td>Attacker Type:</td><td><%= select("AttackerType", "attacker_id", Attacker.all.collect {|attacker| [ attacker.name, attacker.id ] },  :include_blank => true) %></td></tr>
-				</table>
+		    	<col width="200">
+				<col width="200">
+			</colgroup>
+			<tr align="top" align="right">
+				<td>
+					<%= text_field_tag :search, params[:search] %>  	
 				</td>
 				<td>
-				<%= submit_tag "Search", :name => nil %>
-				<input type="reset">
+					<%= submit_tag "Search", :name => nil %>				
 				</td>
 			</tr>
 		</table>
 	</p>
-
-	<div id="incidents">
-		<%= hidden_field_tag :direction, params[:direction] %>
-		<%= hidden_field_tag :sort, params[:sort] %>
-		<%= will_paginate @incidents %>
-	</div>
 			
 	<table class="pretty" id="rounded-corner" width="910">
 	  <colgroup>
 		<% if signed_in? && admin? %>
-		<col width="5">
+			<col width="5">
 		<% end %>
-	    <col width="120">
-		<col width="120">
-	    <col width="300">
+		<col width="70">
 	    <col width="150">
 	    <col width="100">
-	    <col width="100">
+	    <col width="50">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	  </colgroup>
+	
 	  <tr valign="top" align="left">
 		<% if signed_in? && admin? %>
 	    <th>Rev</th>
 		<% end %>
-	    <th><%= sortable "firstseen", "First Seen"%></th>
-		<th><%= sortable "updated_at", "Updated at" %></th>
+		<th>Updated</th>
 	    <th>Name</th>
 	    <th>Victim</th>
-	    <th>Target</th>
 	    <th>Attacker</th>
 	    <% if signed_in? && admin? %>
-	    <th></th>
-	    <th></th>
+	    <th>Admin</th>
 	    <% end %>
 	  </tr>
+	
 		<% @incidents.each do |incident| %>
 
 			<% if signed_in? && admin? %>
 				<tr valign="top" align="left">
 		    		<td><%= incident.reviewed %></td>		
-					<td><%= incident.firstseen %></td>
 					<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
 	    			<td><%= link_to incident.name, incident %></td>
 	    			<td><%= incident.pvname %></td>
-	    			<td><%= incident.target.name %></td>
 	    			<td><%= incident.attacker.name %></td>
-	    			<td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-	    			<td><%= link_to 'Del', incident, :confirm => 'Are you sure?', :method => :delete %></td>
+	    			<td><%= link_to 'Edit', edit_incident_path(incident) %> | 
+	    			<%= link_to 'Del', incident, :confirm => 'Are you sure?', :method => :delete %></td>
 				</tr>
 			<% else %>
 				<% if incident.reviewed %>
 				<tr valign="top" align="left">
-					<td><%= incident.firstseen %></td>
 					<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
 	    			<td><%= link_to incident.name, incident %></td>
 	    			<td><%= incident.pvname %></td>
-	    			<td><%= incident.target.name %></td>
 	    			<td><%= incident.attacker.name %></td>
 				</tr>
 				<% end %>

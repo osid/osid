@@ -1,20 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Header:</b>
-  <%= @blogpost.header %>
+  <b><%= @blogpost.header %></b>
 </p>
 
 <p>
-  <b>Content:</b>
   <%= @blogpost.content %>
 </p>
 
 <p>
   <b>User:</b>
-  <%= @blogpost.user_id %>
+  <%= @blogpost.user.name %>
 </p>
 
+<p>
+  <b>Created:</b>
+  <%= @blogpost.created_at %>
+</p>
+<p>
+<b>Modified:</b>
+<%= @blogpost.updated_at %>
+</p>
 
+<% if signed_in? && admin? %>
 <%= link_to 'Edit', edit_blogpost_path(@blogpost) %> |
+<% end %>
 <%= link_to 'Back', blogposts_path %>

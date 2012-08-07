@@ -19,10 +19,14 @@
     	<col width="250">    
 	</colgroup>  
 	<tr>
+		<td valign="top" align="right"><b>Reviewed</b></td>
+    	<td valign="top" ><%= f.check_box :reviewed %></td>
+</tr>
+<tr>
     	<td valign="top" align="right"><b><%= f.label :name %></b></td>
     	<td valign="top" ><%= f.text_field :name, :size => "60" %></td>
     	<td valign="top" align="right"><b><%= f.label :date %></b></td>
-    	<td valign="top" ><%= f.date_select :date %></td>
+    	<td valign="top" ><%= f.text_field :date %></td>
 	</tr>
 	<tr>
     	<td valign="top" align="right"><b><%= f.label :description %></b></td>

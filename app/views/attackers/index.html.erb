@@ -1,30 +1,32 @@
 <h1>Listing Attackers</h1>
 <p>
-<table lass="pretty" id="rounded-corner">
+<table class="pretty" id="rounded-corner">
 	<colgroup>
-  		<col width="200">
-		<col width="200">
-		<col width="50">
-		<col width="50">
-		<col width="200">
+  		<col width="100">
+		<col width="150">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	</colgroup>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<% if signed_in? && admin? %>
+		<th>Admin</th>
+	<% end %>
   </tr>
 
 <% @attackers.each do |attacker| %>
   <tr valign="top" align="left">
     <td><%= attacker.name %></td>
     <td><%= attacker.description %></td>
-    <td><%= link_to 'Show', attacker %></td>
-    <td><%= link_to 'Edit', edit_attacker_path(attacker) %></td>
-    <td><%= link_to 'Destroy', attacker, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% if signed_in? && admin? %>
+    	<td> <%= link_to 'Show', attacker %> | <%= link_to 'Edit', edit_attacker_path(attacker) %> |
+    	<%= link_to 'Destroy', attacker, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>
-<b>
+<% if signed_in? && admin? %>
 <%= link_to 'New Attacker', new_attacker_path %>
+<% end %>

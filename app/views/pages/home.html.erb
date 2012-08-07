@@ -1,4 +1,4 @@
-<h2>The latest website stats</h2>
+<h2>OSID Statistics</h2>
 <p>
 <table>
 	<colgroup>
@@ -20,15 +20,36 @@
 </table>				
 </p>
 
-<h2>Latest news</h2>
+<h2>Add a new Incident</h2>
+<p>
+<%= link_to "...Submit", new_incident_path  %>
+</p>
+
+<h2>Search Incidents</h2>
 <p>
 <table>
-	<col width="600">
-	<col width="200">
+<%= form_tag incidents_path, :method => :get do %>
+<tr align="top" align="right">
+	<td>
+		<%= text_field_tag :search, params[:search] %>  	
+	</td>
+	<td>
+		<%= submit_tag "Search", :name => nil %>				
+	</td>
+</tr>
+<% end %>
+</table>
+</p>
+
+<h2>Latest News</h2>
+<p>
+<table>
+	<col width="700">
 	<col width="100">
-<% @blogposts.each do |post| %>
+	<col width="100">
+	<% @blogposts.each do |post| %>
  	<tr>
-		<td><b><%= post.header %></b></td><td><%= post.updated_at.strftime("%Y-%m-%d") %></td><td>by: <%= post.user.name %></td>
+		<td><b><%= link_to post.header, post %></b></td><td><%= post.updated_at.strftime("%Y-%m-%d") %></td><td>by: <%= post.user.name  %></td>
 	</tr>
 	<tr>
 		<td colspan="3"><br><%= post.content %><br><br><br></td>

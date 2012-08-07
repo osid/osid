@@ -1,0 +1,52 @@
+     echo: off
+  explain: off
+  headers: off
+     mode: csv
+nullvalue: ""
+   output: dump_20120711.sqlite
+separator: ","
+    stats: off
+    width: 
+seq  name             file                                                      
+---  ---------------  ----------------------------------------------------------
+0    main             /Users/nik/Development/osid/db/development.sqlite3        
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "pvsectors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "pvsectors" VALUES(29,'Oil & Gas','Oil & Gas Producers, Oil Equipment, Services & Distribution, Alternative Energy','2011-12-03 12:10:29.483960','2011-12-03 12:10:29.483960');
+INSERT INTO "pvsectors" VALUES(30,'Basic Materials - Chemicals','Commodity Chemicals, Specialty Chemicals','2011-12-03 12:10:29.488363','2011-12-03 12:10:29.488363');
+INSERT INTO "pvsectors" VALUES(31,'Basic Materials - Basic Resources','Forestry, Paper, Industrial Metals & Mining','2011-12-03 12:10:29.490687','2011-12-03 12:10:29.490687');
+INSERT INTO "pvsectors" VALUES(32,'Industrials -	Construction & Materials','Building Materials & Fixtures and Heavy Construction','2011-12-03 12:10:29.492980','2011-12-03 12:10:29.492980');
+INSERT INTO "pvsectors" VALUES(33,'Industrials	- Industrial Goods & Services','Aerospace, Defense, General Industrials, Electronic & Electronical Equipment, Industrial Engineering, Industrial Transportation, Support Services','2011-12-03 12:10:29.495299','2011-12-03 12:10:29.495299');
+INSERT INTO "pvsectors" VALUES(34,'Consumer Goods - Automobiles & Parts','Automobiles, Auto Parts','2011-12-03 12:10:29.497521','2011-12-03 12:10:29.497521');
+INSERT INTO "pvsectors" VALUES(35,'Consumer Goods - Food & Beverage','Beverages, Food Producers','2011-12-03 12:10:29.499800','2011-12-03 12:10:29.499800');
+INSERT INTO "pvsectors" VALUES(36,'Consumer Goods - Personal & Household Goods','Household Goods & Home Construction, Leisure Goods, Personal Goods, Tabacco','2011-12-03 12:10:29.502065','2011-12-03 12:10:29.502065');
+INSERT INTO "pvsectors" VALUES(37,'Health Care	Health Care	','Health Care Equipment & Services, Pharmaceuticals & Biotech','2011-12-03 12:10:29.504472','2011-12-03 12:10:29.504472');
+INSERT INTO "pvsectors" VALUES(38,'Consumer Services -	Retail','Food & Drug Retailers, General Retailers','2011-12-03 12:10:29.507042','2011-12-03 12:10:29.507042');
+INSERT INTO "pvsectors" VALUES(39,'Consumer Services - Media','Broadcasting & Entertainment, Media Agencies, Publishing','2011-12-03 12:10:29.510265','2011-12-03 12:10:29.510265');
+INSERT INTO "pvsectors" VALUES(40,'Consumer Services - Travel & Leisure','Airlines, Gambling, Hotels, Recreational Services, Restaurants & Bars, Travel & Tourism','2011-12-03 12:10:29.513390','2011-12-03 12:10:29.513390');
+INSERT INTO "pvsectors" VALUES(41,'Telecommunications','Fixed Line and Mobile Telecommunications','2011-12-03 12:10:29.516544','2011-12-03 12:10:29.516544');
+INSERT INTO "pvsectors" VALUES(42,'Utilities	Utilities','Electricity (conventional, alternative), Gas, Water & Multi-utilities','2011-12-03 12:10:29.519237','2011-12-03 12:10:29.519237');
+INSERT INTO "pvsectors" VALUES(43,'Financials - Banks',NULL,'2011-12-03 12:10:29.521789','2011-12-03 12:10:29.521789');
+INSERT INTO "pvsectors" VALUES(44,'Financials - Insurance','Full Line Insurance, Insurance Brokers, Property & Casuality Insurance, Reinsurance, Life Insurance','2011-12-03 12:10:29.525119','2011-12-03 12:10:29.525119');
+INSERT INTO "pvsectors" VALUES(45,'Financials - Real Estate','Real Estate Investment & Services, Real Estate Investment Trust','2011-12-03 12:10:29.527446','2011-12-03 12:10:29.527446');
+INSERT INTO "pvsectors" VALUES(46,'Financials - Financial Services','Asset Managers, Consumer Finance, Specialty Finance, Investment Services, Mortgage Finance, Equity Investment Instruments','2011-12-03 12:10:29.529781','2011-12-03 12:10:29.529781');
+INSERT INTO "pvsectors" VALUES(47,'Technology','Software & Computer Technology, Hardware & Equipment','2011-12-03 12:10:29.532083','2011-12-03 12:10:29.532083');
+INSERT INTO "pvsectors" VALUES(48,'Government	Lawenforcement','Police','2011-12-03 12:10:29.534676','2011-12-03 12:10:29.534676');
+INSERT INTO "pvsectors" VALUES(49,'Government	Defense	','Military Forces, Intelligence Agencies','2011-12-03 12:10:29.537106','2011-12-03 12:10:29.537106');
+INSERT INTO "pvsectors" VALUES(50,'Government	Foreign Services','Embassies','2011-12-03 12:10:29.540383','2011-12-03 12:10:29.540383');
+INSERT INTO "pvsectors" VALUES(51,'Government	Others','	','2011-12-03 12:10:29.543178','2011-12-03 12:10:29.543178');
+COMMIT;
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "svsectors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "svsectors" VALUES(10,'Citizens',NULL,'2011-12-03 12:10:29.553452','2011-12-03 12:10:29.553452');
+INSERT INTO "svsectors" VALUES(11,'Consumers',NULL,'2011-12-03 12:10:29.558353','2011-12-03 12:10:29.558353');
+INSERT INTO "svsectors" VALUES(12,'Customers',NULL,'2011-12-03 12:10:29.560641','2011-12-03 12:10:29.560641');
+INSERT INTO "svsectors" VALUES(13,'Customers - Private',NULL,'2011-12-03 12:10:29.562896','2011-12-03 12:10:29.562896');
+INSERT INTO "svsectors" VALUES(14,'Customers - Corporate',NULL,'2011-12-03 12:10:29.566360','2011-12-03 12:10:29.566360');
+INSERT INTO "svsectors" VALUES(15,'Students, Schoolars',NULL,'2011-12-03 12:10:29.568966','2011-12-03 12:10:29.568966');
+INSERT INTO "svsectors" VALUES(16,'Multiple',NULL,'2011-12-03 12:10:29.571352','2011-12-03 12:10:29.571352');
+INSERT INTO "svsectors" VALUES(17,'Others',NULL,'2011-12-03 12:10:29.574655','2011-12-03 12:10:29.574655');
+INSERT INTO "svsectors" VALUES(18,'None',NULL,'2011-12-03 12:10:29.577848','2011-12-03 12:10:29.577848');
+COMMIT;

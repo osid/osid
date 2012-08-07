@@ -2,29 +2,32 @@
 <p>
 <table lass="pretty" id="rounded-corner">
 	<colgroup>
-  		<col width="300">
-		<col width="100">
-		<col width="50">
-		<col width="50">
-		<col width="200">
+  		<col width="100">
+		<col width="150">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	</colgroup>
   <tr>
     <th>Name</th>
     <th>Code</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<% if signed_in? && admin? %>
+		<th>Admin</th>
+	<% end %>
   </tr>
 
 <% @countries.each do |country| %>
   <tr valign="top" align="left">
     <td><%= country.name %></td>
     <td><%= country.code %></td>
-    <td><%= link_to 'Show', country %></td>
-    <td><%= link_to 'Edit', edit_country_path(country) %></td>
-    <td><%= link_to 'Destroy', country, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% if signed_in? && admin? %>
+    	<td><%= link_to 'Show', country %> |
+    	<%= link_to 'Edit', edit_country_path(country) %> |
+    	<%= link_to 'Destroy', country, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>
-<p>
+<% if signed_in? && admin? %>
 <%= link_to 'New Country', new_country_path %>
+<% end %>

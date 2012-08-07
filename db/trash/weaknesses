@@ -1,0 +1,7 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "weaknesses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "weaknesses" VALUES(4,'Bad configuration',NULL,'2011-12-03 12:10:29.627277','2011-12-03 12:10:29.627277');
+INSERT INTO "weaknesses" VALUES(5,'Zero day',NULL,'2011-12-03 12:10:29.631488','2011-12-03 12:10:29.631488');
+INSERT INTO "weaknesses" VALUES(6,'Unpatched vulnerability',NULL,'2011-12-03 12:10:29.634010','2011-12-03 12:10:29.634010');
+COMMIT;

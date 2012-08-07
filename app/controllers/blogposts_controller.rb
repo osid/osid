@@ -1,6 +1,6 @@
 class BlogpostsController < ApplicationController
-  before_filter :authenticate, :except => [ :index, :show]
-  before_filter :admin_user, :only => [:show, :edit, :destroy]
+  before_filter :authenticate, :except => [ :index, :show, :feed]
+  before_filter :admin_user, :only => [ :edit, :destroy]
   
   # GET /blogposts
   # GET /blogposts.xml
@@ -97,4 +97,24 @@ class BlogpostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def feed
+    # this will be the name of the feed displayed on the feed reader
+    @title = "OSID News"
+
+    # the news items
+    @blogposts = Blogpost.order("updated_at desc")
+
+    # this will be our Feed's update timestamp
+    @updated = @blogposts.first.updated_at unless @blogposts.empty?
+
+    respond_to do |format|
+      format.atom { render :layout => false }
+
+      # we want the RSS feed to redirect permanently to the ATOM feed
+      format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+    end
+  end
+  
+  
 end

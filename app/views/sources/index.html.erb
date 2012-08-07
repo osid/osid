@@ -2,38 +2,55 @@
 
 <%= will_paginate @sources %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Summary</th>
-    <th>Publisher</th>
-    <th>Media</th>
-    <th>Publishingdate</th>
-    <th>User</th>
-    <th>Addition</th>
+
+<table class="pretty" id="rounded-corner">
+	<colgroup>
+		<% if signed_in? && admin? %>
+			<col width="20">
+		<% end %>
+		<col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="50">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
+	</colgroup>
+	
+  <tr valign="top" align="left">
+	<% if signed_in? && admin? %>
+	    <th>Rev</th>
+	<% end %>
+    <th>Name</th>
+    <th>Event</th>
     <th>Reference</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>User</th>
+    <% if signed_in? && admin? %>
+    	<th>Admin</th>
+    <% end %>
   </tr>
 
 <% @sources.each do |source| %>
   <tr valign="top" align="left">
-    <td><%= source.name %></td>
-    <td><%= source.summary %></td>
-    <td><%= source.publisher %></td>
-    <td><%= source.media %></td>
-    <td><%= source.publishingdate %></td>
-    <td><%= source.user.name %></td>
-    <td><%= source.event.name %></td>
-    <td><%= source.reference %></td>
-    <td><%= link_to 'Show', source %></td>
-    <td><%= link_to 'Edit', edit_source_path(source) %></td>
-    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% if signed_in? && admin? %>
+		<td><%= source.reviewed %></td>
+    	<td><%= link_to source.name, source %></td>
+    	<td><%= source.event.name %></td>
+		<td><%= source.reference %></td>
+    	<td><%= source.user.name %></td>
+    	<td><%= link_to 'Edit', edit_source_path(source) %> |
+    	<%= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% else %>
+		<% if source.reviewed %>
+  <td><%= link_to source.name, source %></td>
+    		<td><%= source.event.name %></td>
+			<td><%= source.reference %></td>
+    		<td><%= source.user.name %></td>
+		<% end %>
+	<% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
+<% if signed_in? && admin? %>
 <%= link_to 'New Source', new_source_path %>
+<% end %>

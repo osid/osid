@@ -4,11 +4,14 @@
 
 <table lass="pretty" id="rounded-corner">
 	<colgroup>
-  		<col width="200">
-		<col width="200">
-		<col width="50">
-		<col width="50">
-		<col width="200">
+  		<col width="80">
+		<col width="80">
+		<col width="40">
+		<col width="40">
+		<col width="40">
+		<% if signed_in? && admin? %>
+			<col width="50">
+		<% end %>
 	</colgroup>
   <tr>
     <th>Name</th>
@@ -16,9 +19,7 @@
     <th>Admin</th>
     <th>Active</th>
     <th>Lastlogin</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Admin</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -29,12 +30,13 @@
     <td><%= user.active %></td>
     <td><%= user.lastlogin %></td>
     <% if signed_in? && admin? %>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    	<td><%= link_to 'Show', user %> |
+    	<%= link_to 'Edit', edit_user_path(user) %> |
+    	<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
   </tr>
 <% end %>
 </table>
-<p>
-<%= link_to 'New User', new_user_path %>
+<% if signed_in? && admin? %>
+	<%= link_to 'New User', new_user_path %>
+<% end %>

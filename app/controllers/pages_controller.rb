@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     
     @sources_latest = Source.find(:first, :order => "created_at DESC")
     
-    @users_count = User.count
+    @users_count = User.count - 1
     
     @users_latest = User.find(:first, :order => "created_at DESC")
   end
