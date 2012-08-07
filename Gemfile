@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'will_paginate', '~> 3.0'
-gem 'sqlite3', '~> 1.3.5'
 gem 'mysql2'
 gem 'prototype-rails'
 gem 'sunspot_rails'
