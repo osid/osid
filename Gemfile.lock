@@ -95,8 +95,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
-    sqlite3 (1.3.6-x86-mingw32)
     sunspot (1.3.3)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
@@ -127,7 +125,6 @@ DEPENDENCIES
   progress_bar
   prototype-rails
   rails (= 3.2.6)
-  sqlite3 (~> 1.3.5)
   sunspot_rails
   sunspot_solr
   twitter
