@@ -1,8 +1,7 @@
 <h2>Search and Browse the Events within the Incident Database</h2>
+<%= will_paginate @events %>
 
-<p><%= render :partial => 'incidents/search' %><p>
-
-<table id="rounded-corner" width="910">
+<table class="pretty" id="rounded-corner" width="910">
     <colgroup>
     	<col width="50">
     	<col width="200">
@@ -13,7 +12,7 @@
 			<% end %>
   	</colgroup>
  	<tr> 
-		<th colspan="100%" align="center"><%= will_paginate @events %></th>
+		<th colspan="100%" align="center"></th>
   	</tr>
   	<tr valign="top" align="left">
     	<th>Date</th>

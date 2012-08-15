@@ -23,6 +23,7 @@ class Incident < ActiveRecord::Base
     string :firstseen_month
   end
   
+  
   def firstseen_month
     firstseen.strftime("%B %Y")
   end
