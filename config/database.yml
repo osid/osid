@@ -3,8 +3,8 @@
 development:
     adapter: mysql2
     encoding: utf8
-    database: osid_dev
-    username: osid_dev
+    database: osid
+    username: osid
     password: password
     host: localhost 
  

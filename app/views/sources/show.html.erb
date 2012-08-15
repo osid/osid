@@ -1,14 +1,12 @@
-<h3>Source Details: <%= @source.name %></h3
-
-<p></p>
-
+<h3>Source Details: <%= @source.name %></h3>
+<hr>
 <%= link_to 'Back to Incident', @source.event.incident %> |
 <%= link_to 'Back to Event', @source.event %> |
 <% if signed_in? && admin? %>
 | <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Delete', @event, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
-
+<hr>
 <p id="notice"><%= notice %></p>
 
 <table cellpadding="5" border="0">
@@ -33,9 +31,25 @@
 <tr>
     <td valign="top" align="right"><b>Reference:</b></td>
     <td valign="top" colspan="3"><%= link_to @source.reference, @source.reference %></td>
-  </tr>  
-  <tr>
-    <td valign="top" align="right"><b>Submitted by:</b></td>
-    <td valign="top" colspan="3"><%= @source.user.name %></td>
-  </tr>  
-</table>  
+  </tr>   
+</table> 
+<hr>
+<h4>Changes</h4>
+	<table cellpadding="5" border="0">
+		<colgroup>
+		    <col width="150">
+		    <col width="200">    
+		 </colgroup>
+		<tr>
+			<td><b>Submitted by:</b></td>
+			<td><%= @source.user.name %><br></td>
+		</tr>
+		<tr>
+			<td><b>Created at:</b></td>
+			<td><%= @source.created_at.strftime("%Y-%m-%d") %></td>
+		</tr>
+		<tr>
+			<td><b>Updated at:</b></td>
+			<td><%= @source.updated_at.strftime("%Y-%m-%d") %></td>
+		</tr>
+	</table>

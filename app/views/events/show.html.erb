@@ -1,14 +1,12 @@
-<h3>Event Details: <%= @event.name %></h3
-
-<p></p>
-
+<h3>Event Details: <%= @event.name %></h3>
+<hr>
 <%= link_to 'Back to Incidnet', @event.incident %> |
 <%= link_to 'Add Source', new_source_path(:ref => @event.id) %>
 <% if signed_in? && admin? %>
 | <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Delete', @event, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
-
+<hr>
 <p id="notice"><%= notice %></p>
 
 <table cellpadding="5" border="0">
@@ -57,9 +55,6 @@
     <% end %>
   <tr>
 </table>
-
-<br>
-
 <table cellpadding="5" border="0">
   <colgroup>
     <col width="150">   
@@ -88,8 +83,27 @@
   		</div>
 <% end %>
 </td>
-
 </tr>
+</table>
+<hr>
+<h4>Changes</h4>
+	<table cellpadding="5" border="0">
+		<colgroup>
+		    <col width="150">
+		    <col width="200">    
+		 </colgroup>
+		<tr>
+			<td><b>Submitted by:</b></td>
+			<td><%= @event.user.name %><br></td>
+		</tr>
+		<tr>
+			<td><b>Created at:</b></td>
+			<td><%= @event.created_at.strftime("%Y-%m-%d") %></td>
+		</tr>
+		<tr>
+			<td><b>Updated at:</b></td>
+			<td><%= @event.updated_at.strftime("%Y-%m-%d") %></td>
+		</tr>
 	</table>
 
 

@@ -1,6 +1,6 @@
 <h3>Incident Details: <%= @incident.name %></h3>
-
-<%= link_to "Back Incidents", incidents_path %> |
+<hr>
+<%= link_to "Back to Incidents", incidents_path %> |
 <%= link_to 'Add Event', new_event_path(:ref => @incident.id) %>
 <% if signed_in? && (admin? || own_object(@incident)) %>
 | <%= link_to 'Edit', edit_incident_path(@incident) %> |
@@ -9,6 +9,7 @@
 
 <p id="notice"><%= notice %></p>
 
+<hr>
 <table cellpadding="5" border="0">
 <colgroup>
      <col width="150">
@@ -34,13 +35,14 @@
 	<td><b>Reviewed</b></td>
 	<td><%= @incident.reviewed %></td>
 </tr>
+
 <tr>
 	<td></td>
 </tr>
 <tr>
-	<td valign="top" align="center"></td>
-	<td valign="top" align="center"><b>Classification</b></td>
-    <td valign="top" align="center"><b>Description</b></td>
+	<td valign="top" align="left"></td>
+	<td valign="top" align="left"><b>Classification</b></td>
+    <td valign="top" align="left"><b>Description</b></td>
 </tr>
 <tr>
 	<td valign="top" align="left"><b>Primary Victim</b></td>
@@ -68,6 +70,7 @@
 </tr>
 </table>
 
+<hr>
 <h4>Timeline</h4>
 	<table cellpadding="5" border="0">
 		<colgroup>
@@ -90,6 +93,7 @@
 </table>
 <br>
 
+<hr>
 <h4>Changes</h4>
 	<table cellpadding="5" border="0">
 		<colgroup>
