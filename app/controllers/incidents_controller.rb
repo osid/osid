@@ -13,7 +13,7 @@ class IncidentsController < ApplicationController
       fulltext params[:search]
       order_by :updated, :desc
       #with(:firstseen_month, params[:month]) if params[:month].present?
-      paginate(:per_page => 5, :page => params[:page])
+      paginate(:per_page => 10, :page => params[:page])
     end
     
     @incidents = @search.results
