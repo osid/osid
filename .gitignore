@@ -1,4 +1,4 @@
-
+solr/data/*
 log/*.log
 tmp/
 *.log

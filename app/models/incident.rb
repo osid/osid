@@ -20,9 +20,14 @@ class Incident < ActiveRecord::Base
   searchable do
     text :name, :summary, :pvname, :targetdescription, :firstseen_month
     time :firstseen
+    string :name
+    string :updated
     string :firstseen_month
   end
   
+  def updated
+    updated_at.strftime("%Y %m %d")
+  end
   
   def firstseen_month
     firstseen.strftime("%B %Y")

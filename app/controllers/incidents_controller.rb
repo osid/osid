@@ -11,7 +11,9 @@ class IncidentsController < ApplicationController
     
     @search = Incident.search do
       fulltext params[:search]
+      order_by :updated, :desc
       #with(:firstseen_month, params[:month]) if params[:month].present?
+      paginate(:per_page => 5, :page => params[:page])
     end
     
     @incidents = @search.results
