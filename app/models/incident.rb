@@ -26,7 +26,7 @@ class Incident < ActiveRecord::Base
   end
   
   def updated
-    updated_at.strftime("%Y %m %d")
+    updated_at.strftime("%Y %m %d %H %M %S")
   end
   
   def firstseen_month
