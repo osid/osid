@@ -105,13 +105,13 @@ class IncidentsController < ApplicationController
         b = Blogpost.new()
         id = @incident.id.to_s
         name = @incident.name
-        b.header = "New Incident OSID-ID: "+id+" / "+name
+        b.header = "New incident " + "<a href=\"http://62.75.162.104:3000/incidents/"+ id +"\">"+ "OSID-ID: " + id +"</a> " + name
         b.content = @incident.summary
         b.user_id = @incident.user_id
         b.save
 
         # create tweet
-        b.tweet!
+        @incident.tweet!
       end
     
   end

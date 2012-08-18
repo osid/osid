@@ -25,7 +25,7 @@
 			
 	<% @blogposts.each do |post| %>
 		<tr valign="top" align="left">
-  			<td><%= post.header %></td>
+  			<td><%= raw post.header %></td>
   			<td><%= post.updated_at.strftime("%Y-%m-%d") %></td>
  			<td><%= post.user_id %></td>
 			<td><%= link_to 'Show', post %></td>
