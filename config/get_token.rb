@@ -4,8 +4,8 @@ require 'rubygems'
 require 'twitter'
 require 'oauth'
 
-consumer_key = "mwizTAb2cQi3XqPwRUrGow"
-consumer_secret = "0HstUpQtU8A857sazjMv9dl7SXq0TcMlGxaNtMeyI"
+consumer_key = "xxx"
+consumer_secret = "yyy"
 
 oauth_consumer = OAuth::Consumer.new(consumer_key, consumer_secret,
                                      :site => 'http://api.twitter.com',

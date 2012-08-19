@@ -3,9 +3,9 @@
 development:
     adapter: mysql2
     encoding: utf8
-    database: osid
-    username: osid
-    password: password
+    database: osid_dev
+    username: osid_dev
+    password: password_dev
     host: localhost 
  
 # Warning: The database defined as "test" will be erased and
@@ -16,7 +16,7 @@ test:
     encoding: utf8
     database: osid_test
     username: osid_test
-    password: password
+    password: password_test
     host: localhost
 
 production:
