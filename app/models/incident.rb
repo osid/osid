@@ -39,7 +39,7 @@ class Incident < ActiveRecord::Base
     #TODO: hard coded URL!!
     url = "http://62.75.162.104:3000/incidents/#{self.id}"
     
-    shrunk_url = Blogpost.tiny_url(url)
+    shrunk_url = Incident.tiny_url(url)
     
     len = shrunk_url.length
     
@@ -52,8 +52,8 @@ class Incident < ActiveRecord::Base
     #update_attribute(:tweeted_at, Time.now.utc)
   end
   
-  def self.tiny_url(available_length, url)
-    return url if url.length < available_length
+  def self.tiny_url(url)
+    return url if url.length < 20
     string = "http://is.gd/api.php?longurl=" + CGI::escape(url)
     open(string).read.strip
   rescue StandardError => e
