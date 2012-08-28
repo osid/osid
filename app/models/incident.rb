@@ -35,9 +35,9 @@ class Incident < ActiveRecord::Base
   end
   
   def tweet!
-    message = "New OSID-ID: " + self.id.to_s + " - " + name + " "
+    message = "New OSIDB-ID: " + self.id.to_s + " - " + name + " "
     #TODO: hard coded URL!!
-    url = "http://62.75.162.104:3000/incidents/#{self.id}"
+    url = "http://www.osidb.org/incidents/#{self.id}"
     
     shrunk_url = Incident.tiny_url(url)
     

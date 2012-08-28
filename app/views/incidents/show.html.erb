@@ -60,6 +60,11 @@
     <td valign="top" ><%= @incident.attackerdescription %></td>
 </tr>
 <tr>
+	<td valign="top" align="left"><b>Weakness</b></td>
+    <td valign="top" ><%= @incident.weakness.name %></td>
+    <td valign="top" ><%= @incident.weaknessdescription %></td>
+</tr>
+<tr>
 	<td valign="top" align="left"><b>Target</b></td>
     <td valign="top" ><%= @incident.target.name %></td>
     <td valign="top" ><%= @incident.targetdescription %></td>

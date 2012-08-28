@@ -60,6 +60,10 @@ class PagesController < ApplicationController
     latest = Attacker.find(:first, :order => "created_at DESC")
     @attackers_latest = latest.created_at.strftime("%Y-%m-%d") if latest
     
+    @weakness_count = Weakness.count
+    latest = Weakness.find(:first, :order => "created_at DESC")
+    @weakness_latest = latest.created_at.strftime("%Y-%m-%d") if latest
+    
     @attack_count = Attack.count
     latest = Attack.find(:first, :order => "created_at DESC")
     @attack_latest = latest.created_at.strftime("%Y-%m-%d") if latest

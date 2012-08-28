@@ -52,6 +52,11 @@
     <td valign="top" ><%= f.text_field :attackerdescription, :size => "60" %></td>
 </tr>
 <tr>
+	<td valign="top" align="left"><b>Weakness</b></td>
+    <td valign="top" ><%= f.select :weakness_id, Weakness.order("name asc").collect {|weakness| [ weakness.name, weakness.id ] } %></td>
+    <td valign="top" ><%= f.text_field :weaknessdescription, :size => "60" %></td>
+</tr>
+<tr>
 	<td valign="top" align="left"><b>Target</b></td>
     <td valign="top" ><%= f.select :target_id, Target.order("name asc").collect {|target| [ target.name, target.id ] } %></td>
     <td valign="top" ><%= f.text_field :targetdescription, :size => "60" %></td>
