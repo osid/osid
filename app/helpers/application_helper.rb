@@ -1,7 +1,7 @@
 module ApplicationHelper
   # Return a title on a per-page basis.
   def title
-    base_title = "OSID, the Open Security Incident Database"
+    base_title = "OSIDB, the Open Security Incident Database"
     if @title.nil?
       base_title
     else

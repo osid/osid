@@ -1,7 +1,7 @@
 <div id="wrapper">
 	<div id="header">
   		<div id="logo">
-			<%= image_tag("osid-logo.png", :alt => "OSID", :size => "478x170") %>
+			<%= image_tag("osidb-logo.png", :alt => "OSIDB", :size => "478x170") %>
     	</div>
 		<div id="welcome">
 			<% if signed_in? %>
@@ -14,10 +14,9 @@
       <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Incidents", incidents_path %></li>
         <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "News Archive",news_path %></li>
+        <li><%= link_to "News",news_path %></li>
       <% if signed_in? %>
-        <li><%= link_to "Profile", current_user %></li>
-        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        <li><%= link_to "Profile", edit_user_path(current_user) %></li>
         <% if admin? %>
           <li><%= link_to "Admin", admin_path %></li>
         <% end %>

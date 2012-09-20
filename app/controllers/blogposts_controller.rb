@@ -100,7 +100,7 @@ class BlogpostsController < ApplicationController
   
   def feed
     # this will be the name of the feed displayed on the feed reader
-    @title = "OSID News"
+    @title = "OSIDB News"
 
     # the news items
     @blogposts = Blogpost.order("updated_at desc")
