@@ -44,7 +44,7 @@
 		<% if signed_in? && admin? %>
 	    <th>Rev</th>
 		<% end %>
-		<th>Updated</th>
+		<th>First Seen</th>
 	    <th>Name</th>
 	    <th>Victim</th>
 	    <th>Attacker</th>
@@ -58,7 +58,7 @@
 			<% if signed_in? && admin? %>
 				<tr valign="top" align="left">
 		    		<td><%= incident.reviewed %></td>		
-					<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
+					<td><%= incident.firstseen.strftime("%Y-%m-%d") %></td>
 	    			<td><%= link_to incident.name, incident %></td>
 	    			<td><%= incident.pvname %></td>
 	    			<td><%= incident.attacker.name %></td>
@@ -68,7 +68,7 @@
 			<% else %>
 				<% if incident.reviewed %>
 				<tr valign="top" align="left">
-					<td><%= incident.updated_at.strftime("%Y-%m-%d") %></td>
+					<td><%= incident.firstseen.strftime("%Y-%m-%d") %></td>
 	    			<td><%= link_to incident.name, incident %></td>
 	    			<td><%= incident.pvname %></td>
 	    			<td><%= incident.attacker.name %></td>

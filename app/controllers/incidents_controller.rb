@@ -105,7 +105,7 @@ class IncidentsController < ApplicationController
         b = Blogpost.new()
         id = @incident.id.to_s
         name = @incident.name
-        b.header = "New incident " + "<a href=\"http://www.osidb/incidents/"+ id +"\">"+ "OSIDB-ID: " + id +"</a> " + name
+        b.header = "New incident " + "<a href=\"http://www.osidb.org/incidents/"+ id +"\">"+ "OSIDB-ID: " + id +"</a> " + name
         b.content = @incident.summary
         b.user_id = @incident.user_id
         b.save
