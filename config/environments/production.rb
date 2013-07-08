@@ -10,7 +10,7 @@ Osid3::Application.configure do
   config.action_controller.perform_caching = true
 
   config.eager_load = true
-  config.whiny_nils = true
+  #config.whiny_nils
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
