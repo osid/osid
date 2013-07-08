@@ -23,27 +23,27 @@ Osid3::Application.routes.draw do
   resources :additions
   resources :incidents  
 
-  match '/feed' => 'blogposts#feed', :as => :feed, :defaults => { :format => 'atom' }
+  get '/feed' => 'blogposts#feed', :as => :feed, :defaults => { :format => 'atom' }
 
-  match '/contact' => 'pages#contact'
-  match '/about'  => 'pages#about'
-  match '/help'  => 'pages#help'
-  match '/signup' => 'users#new'
-  match '/signin' => 'sessions#new'
-  match '/signout' => 'sessions#destroy'
-  match '/news' => 'pages#news'
-  match '/privacy' => 'pages#privacy'
-  match '/contribute' => 'pages#contribute'
-  match '/search' => 'pages#search'
-  match '/admin' => 'pages#admin'
+  get '/contact' => 'pages#contact'
+  get '/about'  => 'pages#about'
+  get '/help'  => 'pages#help'
+  get '/signup' => 'users#new'
+  get '/signin' => 'sessions#new'
+  get '/signout' => 'sessions#destroy'
+  get '/news' => 'pages#news'
+  get '/privacy' => 'pages#privacy'
+  get '/contribute' => 'pages#contribute'
+  get '/search' => 'pages#search'
+  get '/admin' => 'pages#admin'
 
   #root :to => "incidents#index"
   root :to => "pages#home"
 
-  match '/' => 'pages#home'
-  match '/home' => 'pages#home'
+  get '/' => 'pages#home'
+  get '/home' => 'pages#home'
 
-  match ':controller/:action/:id'
-  match ':controller/:action/:id.:format'
+  get ':controller/:action/:id'
+  get ':controller/:action/:id.:format'
 
 end

@@ -1,3 +1,6 @@
+test:
+  oauth_token: TWITTER_APP_TOKEN_DEV
+  oauth_token_secret: TWITTER_APP_SECRET_DEV
 development:
   oauth_token: TWITTER_APP_TOKEN_DEV
   oauth_token_secret: TWITTER_APP_SECRET_DEV

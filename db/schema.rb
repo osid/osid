@@ -9,51 +9,51 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125050228) do
+ActiveRecord::Schema.define(version: 20111125050228) do
 
-  create_table "attackers", :force => true do |t|
+  create_table "attackers", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "attacks", :force => true do |t|
+  create_table "attacks", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "blogposts", :force => true do |t|
+  create_table "blogposts", force: true do |t|
     t.string   "header"
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "countries", :force => true do |t|
+  create_table "countries", force: true do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "events", :force => true do |t|
+  create_table "events", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
     t.integer  "incident_id"
     t.date     "date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.boolean  "reviewed"
   end
 
-  create_table "incidents", :force => true do |t|
+  create_table "incidents", force: true do |t|
     t.string   "name"
     t.date     "firstseen"
     t.integer  "user_id"
@@ -69,21 +69,21 @@ ActiveRecord::Schema.define(:version => 20111125050228) do
     t.string   "targetdescription"
     t.integer  "target_id"
     t.integer  "country_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "reviewed"
     t.string   "weaknessdescription"
     t.integer  "weakness_id"
   end
 
-  create_table "pvsectors", :force => true do |t|
+  create_table "pvsectors", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "sources", :force => true do |t|
+  create_table "sources", force: true do |t|
     t.string   "name"
     t.text     "summary"
     t.string   "publisher"
@@ -92,26 +92,26 @@ ActiveRecord::Schema.define(:version => 20111125050228) do
     t.integer  "user_id"
     t.integer  "event_id"
     t.string   "reference"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.boolean  "reviewed"
   end
 
-  create_table "svsectors", :force => true do |t|
+  create_table "svsectors", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "targets", :force => true do |t|
+  create_table "targets", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "encrypted_password"
@@ -119,15 +119,15 @@ ActiveRecord::Schema.define(:version => 20111125050228) do
     t.boolean  "admin"
     t.boolean  "active"
     t.datetime "lastlogin"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  create_table "weaknesses", :force => true do |t|
+  create_table "weaknesses", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

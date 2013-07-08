@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '4.0.0'
 gem 'will_paginate', '~> 3.0'
 gem 'mysql2'
 gem 'prototype-rails'
@@ -10,6 +10,7 @@ gem 'progress_bar'
 gem 'jquery-rails'
 gem 'twitter'
 gem 'oauth'
+gem 'protected_attributes'
 
 
 group :development do
