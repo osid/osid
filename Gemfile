@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'twitter'
 gem 'oauth'
 gem 'protected_attributes'
+gem 'thin'
 
 
 group :development do
